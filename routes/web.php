@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +17,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+Route::get('/datos', function () {
+    $datos = DB::select('select * from USERCONNECTION');
+    return $datos;
+    
+});
+
+Route::get('/me', function () {
+    //mensaje de prueba
+    return '';
+    
+
+
 });
