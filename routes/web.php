@@ -3,7 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+//use tablespacesController:
+use App\Http\Controllers\tablespacesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,7 +31,10 @@ Route::get('/datos', function () {
 Route::get('/me', function () {
     //mensaje de prueba
     return '';
-    
-
-
 });
+Route::controller(tablespacesController::class)->group(function (){
+    Route::get('/tablespaces','index');
+    Route::get('/tablespaces/{id}','show');
+    Route::post('/tablespaces','crear');
+
+}); 
