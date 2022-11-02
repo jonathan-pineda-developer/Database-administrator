@@ -19,10 +19,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/datos', function () {
-    $datos = DB::select('select * from USERCONNECTION');
+    $datos = DB::select('select * from v$tablespace');
     return $datos;
     
 });
+
 
 Route::get('/me', function () {
     //mensaje de prueba
