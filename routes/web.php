@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 //use tablespacesController:
 use App\Http\Controllers\tablespacesController;
+use Illuminate\Http\Request;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,24 +20,22 @@ use App\Http\Controllers\tablespacesController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('tablespaces/schemas', [tablespacesController::class, 'schemas']);
+Route::get('tablespaces/publicPath', [tablespacesController::class, 'publicPath']);
+Route::post('tablespaces/create', [tablespacesController::class, 'createTablespace']);
+Route::post('tablespaces/temporary', [tablespacesController::class, 'createTemporaryTablespace']);
+Route::delete('tablespaces/delete/{tablespace}', [tablespacesController::class, 'deleteTablespace']);
+Route::get('tablespaces/list', [tablespacesController::class, 'tablespaces']);
+
+
 Route::get('/datos', function () {
-    $datos = DB::select('select * from v$tablespace');
-    return $datos;
-    
+    return DB::select(
+        'select username as schema_name
+        from sys.dba_users
+        order by username'
+    );
 });
-
-
-Route::get('/me', function () {
-    //mensaje de prueba
-    return '';
-});
-Route::controller(tablespacesController::class)->group(function (){
-    Route::get('/tablespaces','index');
-    Route::get('/tablespaces/{id}','show');
-    Route::post('/tablespaces','crear');
-
-}); 
