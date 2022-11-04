@@ -5,6 +5,8 @@ use App\Http\Requests\DumpFileRequest;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class tablespacesController extends Controller
 {
@@ -55,12 +57,13 @@ class tablespacesController extends Controller
 
         return response(null, 204);
     }
-    
+
     public function tablespaces()
     {
-        return DB::table('USER_TABLESPACES')
+        return  DB::table('USER_TABLESPACES')
             ->select('TABLESPACE_NAME')
             ->get();
+            
     }
 
     public function resizeTablespace(Request $request)

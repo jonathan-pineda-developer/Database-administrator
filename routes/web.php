@@ -21,7 +21,7 @@ use Illuminate\Http\Request;
 |
 */
 Route::get('/', function () {
-    return view('welcome');
+    return view('tablespaces');
 });
 
 Route::get('tablespaces/schemas', [tablespacesController::class, 'schemas']);
@@ -30,12 +30,3 @@ Route::post('tablespaces/create', [tablespacesController::class, 'createTablespa
 Route::post('tablespaces/temporary', [tablespacesController::class, 'createTemporaryTablespace']);
 Route::delete('tablespaces/delete/{tablespace}', [tablespacesController::class, 'deleteTablespace']);
 Route::get('tablespaces/list', [tablespacesController::class, 'tablespaces']);
-
-
-Route::get('/datos', function () {
-    return DB::select(
-        'select username as schema_name
-        from sys.dba_users
-        order by username'
-    );
-});
