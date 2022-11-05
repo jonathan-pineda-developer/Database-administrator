@@ -143,4 +143,35 @@ class tablespacesController extends Controller
 
         return response(['message' => 'Tablespace redimensionado con éxito'], 201);
     }
+    public function createSchemaBackUp($schema)
+    {
+        DB::statement('alter session set "_oracle_script"=true');
+
+        // DB::statement("CREATE OR REPLACE DIRECTORY RESPALDO AS 'D:\Trabajos_U\II_semestre_2021\Administracion_Bases\Proyectos\Proyecto_1\Administrador-Respaldos\Adminstrador-Respaldos-Backend\public\respaldos'");
+
+        DB::statement("CREATE OR REPLACE DIRECTORY RESPALDO AS " . "'" . public_path() . "\\respaldos'");
+
+        // DB::statement('GRANT READ, WRITE ON DIRECTORY RESPALDO TO administrador_fachero');
+
+        $cmd = "EXPDP SYSTEM/coutJonathan97@XE SCHEMAS=" . $schema . " DIRECTORY=RESPALDO DUMPFILE=" . $schema . ".DMP LOGFILE=" . $schema . ".LOG";
+
+        shell_exec($cmd);
+
+        $path = 'respaldos/' . $schema . '.DMP';
+
+        return response()->download($path);
+    }
+    public function deleteSchemaBackUp($schema)
+    {
+        $path = 'respaldos/' . $schema . '.DMP';
+
+        File::delete($path);
+
+        $path = 'respaldos/' . $schema . '.LOG';
+
+        File::delete($path);
+
+        return response(null, 204);
+    }
+
 }

@@ -41,3 +41,7 @@ Route::get('/create/{tablespace}', [tablespacesController::class, 'createTablesp
 Route::get('/create-temp/{tablespace}', [tablespacesController::class, 'createTemporaryTablespace']);
 //Delete a tablespace
 Route::get('/delete/{tablespace}', [tablespacesController::class, 'deleteTablespace']);
+//create a schema backup
+Route::get('/schema-backup/{schema}', [tablespacesController::class, 'createSchemaBackUp']);
+//delete .log and .dmp files
+Route::get('/delete-backup/{schema}', [tablespacesController::class, 'deleteSchemaBackUp']);
