@@ -18,7 +18,7 @@
                     <thead>
                         <tr>
                             <th scope="col">Oracle</th>
-                            <th scope="col">Nombre</th>
+                            <th scope="col">shit</th>
                         </tr>
                     </thead>
                     <tbody>
