@@ -11,26 +11,13 @@
 </head>
 <body>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-12"><h1>Tablespaces</h1></div>
-                 <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Oracle</th>
-                            <th scope="col">shit</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                        </tr>
-                    
-                    </tbody>
-                 </table>     
-        </div>
-    </div>
+<!--crear un form para crear un tablespace--->
+    <form action="{{ url('tablespaces/createTablespace') }}" method="POST">
+        @csrf
+        <input type="text" name="name" placeholder="Nombre del tablespace">
+        <button type="submit">Crear</button>
+        @METHOD('POST')
+    </form>
     
 </body>
 </html>

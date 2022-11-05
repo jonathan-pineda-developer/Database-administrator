@@ -24,6 +24,7 @@ class tablespacesController extends Controller
         return response(['path' => public_path() . "\\respaldos"], 200);
     }
 
+    /* PARA POST METHOD CREAR TABLESPACE
     public function createTablespace(Request $request)
     {
         $fields = $request->validate([
@@ -32,11 +33,20 @@ class tablespacesController extends Controller
 
         DB::statement('alter session set "_oracle_script"=true');
 
-        DB::statement("CREATE TABLESPACE " . $fields['name'] . " DATAFILE '" . public_path() . "\\tablespaces\\" . $fields['name'] . ".DBF' SIZE 100M AUTOEXTEND ON NEXT 50");
+        DB::statement("CREATE TABLESPACE " . $fields['name'] . " DATAFILE '" . 'C:\\app\\50683\\product\\21c\\oradata\\XE\vscode\\tablespaces\\' . $fields['name'] . ".DBF' SIZE 100M AUTOEXTEND ON NEXT 50");
+
+        return response(['message' => 'Tablespace creado con éxito'], 201);
+    }*/
+
+    public function createTablespace($tablespace)
+    {
+        DB::statement('alter session set "_oracle_script"=true');
+
+        DB::statement("CREATE TABLESPACE " . $tablespace . " DATAFILE '" . 'C:\\app\\50683\\product\\21c\\oradata\\XE\vscode\\tablespaces\\' . $tablespace . ".DBF' SIZE 100M AUTOEXTEND ON NEXT 50");
 
         return response(['message' => 'Tablespace creado con éxito'], 201);
     }
- 
+ /* PARA POST METHOD CREAR TABLESPACE TEMPORAL
     public function createTemporaryTablespace(Request $request)
     {
         $fields = $request->validate([
@@ -48,7 +58,16 @@ class tablespacesController extends Controller
         DB::statement("CREATE TEMPORARY TABLESPACE " . $fields['name'] . "_TEMP TEMPFILE '" . public_path() . "\\tablespaces\\" . $fields['name'] . "_TEMP.DBF' SIZE 25M AUTOEXTEND ON NEXT 50");
 
         return response(['message' => 'Tablespace creado con éxito'], 201);
+    }*/
+    public function createTemporaryTablespace($tablespace)
+    {
+        DB::statement('alter session set "_oracle_script"=true');
+
+        DB::statement("CREATE TEMPORARY TABLESPACE " . $tablespace . "_TEMP TEMPFILE '" . 'C:\\app\\50683\\product\\21c\\oradata\\XE\vscode\\tablespaces\\' . $tablespace . "_TEMP.DBF' SIZE 25M AUTOEXTEND ON NEXT 50");
+
+        return response(['message' => 'TempFile  creado con éxito'], 201);
     }
+
     public function deleteTablespace($tablespace)
     {
         DB::statement('alter session set "_oracle_script"=true');
@@ -58,14 +77,22 @@ class tablespacesController extends Controller
         return response(null, 204);
     }
 
-    public function tablespaces()
+    /*public function tablespaces()
     {
         return  DB::table('USER_TABLESPACES')
             ->select('TABLESPACE_NAME')
             ->get();
             
+    }*/
+    public function tablespaces()
+    {
+        return DB::select(
+            'select tablespace_name as tablespace_name
+            from dba_tablespaces
+            order by tablespace_name'
+        );
     }
-
+    /*
     public function resizeTablespace(Request $request)
     {
         $fields = $request->validate([
@@ -85,7 +112,7 @@ class tablespacesController extends Controller
         DB::statement("ALTER DATABASE DATAFILE '$resultado' resize " . $fields['size'] . "M");
 
         return response(['route' => 'Resize exitoso'], 200);
-    }
+    }*/
     public function resizeTemporaryTablespace(Request $request)
     {
         $fields = $request->validate([
@@ -105,5 +132,15 @@ class tablespacesController extends Controller
         DB::statement("ALTER DATABASE DATAFILE '$resultado' resize " . $fields['size'] . "M");
 
         return response(['route' => 'Resize exitoso'], 200);
+    }
+
+    //cambiar de tamaño a un tablespace
+    public function resizeTablespace($tablespace, $size)
+    {
+        DB::statement('alter session set "_oracle_script"=true');
+
+        DB::statement("ALTER DATABASE DATAFILE '" . 'C:\\app\\50683\\product\\21c\\oradata\\XE\vscode\\tablespaces\\' . $tablespace . ".DBF' RESIZE " . $size . "M");
+
+        return response(['message' => 'Tablespace redimensionado con éxito'], 201);
     }
 }

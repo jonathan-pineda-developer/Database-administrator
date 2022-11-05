@@ -21,12 +21,23 @@ use Illuminate\Http\Request;
 |
 */
 Route::get('/', function () {
-    return view('tablespaces');
+    return view('welcome');
 });
 
-Route::get('tablespaces/schemas', [tablespacesController::class, 'schemas']);
-Route::get('tablespaces/publicPath', [tablespacesController::class, 'publicPath']);
-Route::post('tablespaces/create', [tablespacesController::class, 'createTablespace']);
-Route::post('tablespaces/temporary', [tablespacesController::class, 'createTemporaryTablespace']);
-Route::delete('tablespaces/delete/{tablespace}', [tablespacesController::class, 'deleteTablespace']);
-Route::get('tablespaces/list', [tablespacesController::class, 'tablespaces']);
+//Route::get('tablespaces/schemas', [tablespacesController::class, 'schemas']);
+//Route::get('tablespaces/publicPath', [tablespacesController::class, 'publicPath']);
+//Route::post('tablespaces/createTablespace', [tablespacesController::class, 'createTablespace']);
+//Route::post('tablespaces/temporary', [tablespacesController::class, 'createTemporaryTablespace']);
+//Route::delete('tablespaces/delete/{tablespace}', [tablespacesController::class, 'deleteTablespace']);
+//Route::get('tablespaces/list', [tablespacesController::class, 'tablespaces']);
+
+//ver los tablespaces
+Route::get('/tablespaces', [tablespacesController::class, 'tablespaces']);
+//rize a tablespace
+Route::get('/resize/{tablespace}/{size}', [tablespacesController::class, 'resizeTablespace']);
+//create a tablespace
+Route::get('/create/{tablespace}', [tablespacesController::class, 'createTablespace']);
+//create a temporary tablespace
+Route::get('/create-temp/{tablespace}', [tablespacesController::class, 'createTemporaryTablespace']);
+//Delete a tablespace
+Route::get('/delete/{tablespace}', [tablespacesController::class, 'deleteTablespace']);
