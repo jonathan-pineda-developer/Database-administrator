@@ -182,6 +182,37 @@ class tablespacesController extends Controller
 
         return response(null, 204);
     }
-   
+    // listar una tabla de una schema(schema = basedatos && tabla = clase)[muestra las columnas de la tabla] 
+    public function columnOfATableOfASchema($schema, $table)
+    {
+        return DB::select("select column_name from all_tab_columns where table_name ='" . $table . "' AND OWNER ='" . $schema . "'");
+    }
+    public function tablasDeSchemas($schema)
+    {
+        return DB::table('all_tables')
+            ->select('table_name')
+            ->where('owner', $schema)
+            ->orderBy('table_name')
+            ->get();
+    }
+    public function analizeSchema($schema)
+    {
+      
+        DB::statement('alter session set "_oracle_script"=true');
+
+        $tablas = DB::table('all_tables')
+            ->select('table_name')
+            ->where('owner', $schema)
+            ->orderBy('table_name')
+            ->get();
+
+        foreach ($tablas as $tabla) {
+         DB::statement("ANALYZE TABLE " . $schema . "." . $tabla->table_name . " COMPUTE STATISTICS");
+        }
+
+        //return response(['message' => 'Tablas re-analizadas'], 200);
+        return response(['message' => 'Tablas analizadas', 'tablas' => $tablas], 200);
+       
+    }
 
 }

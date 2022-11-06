@@ -50,3 +50,9 @@ Route::get('/list-schemas', [tablespacesController::class, 'schemas']);
 Route::get('/schema-backup/{schema}', [tablespacesController::class, 'createSchemaBackUp']);
 //delete .log and .dmp files
 Route::get('/delete-backup/{schema}', [tablespacesController::class, 'deleteSchemaBackUp']);
+//listar una tabla de una schema(schema = basedatos && tabla = clase)[muestra las columnas de la tabla]
+Route::get('/schema-table/{schema}/{table}', [tablespacesController::class, 'columnOfATableOfASchema']);
+//Listar todas las tablas del schema [ver todas las clases dentro de la base de datos]
+Route::get('/schema-tables/{schema}', [tablespacesController::class, 'tablasDeSchemas']);
+//analizar un schema
+Route::get('/analyze-schema/{schema}', [tablespacesController::class, 'analizeSchema']);
