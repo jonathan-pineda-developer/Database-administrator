@@ -56,3 +56,7 @@ Route::get('/schema-table/{schema}/{table}', [tablespacesController::class, 'col
 Route::get('/schema-tables/{schema}', [tablespacesController::class, 'tablasDeSchemas']);
 //analizar un schema
 Route::get('/analyze-schema/{schema}', [tablespacesController::class, 'analizeSchema']);
+
+//----------------------------------------------------------
+//listar privilegios
+Route::get('/list-privileges', [tablespacesController::class, 'privileges']);
