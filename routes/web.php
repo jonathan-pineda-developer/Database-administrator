@@ -32,15 +32,20 @@ Route::get('/', function () {
 //Route::get('tablespaces/list', [tablespacesController::class, 'tablespaces']);
 
 //ver los tablespaces
-Route::get('/tablespaces', [tablespacesController::class, 'tablespaces']);
+Route::get('/list-tablespaces', [tablespacesController::class, 'tablespaces']);
 //rize a tablespace
 Route::get('/resize/{tablespace}/{size}', [tablespacesController::class, 'resizeTablespace']);
+//resize a temporal tablespace
+Route::get('/resize-temp/{tablespace}/{size}', [tablespacesController::class, 'resizeTemporaryTablespace']);
 //create a tablespace
 Route::get('/create/{tablespace}', [tablespacesController::class, 'createTablespace']);
 //create a temporary tablespace
 Route::get('/create-temp/{tablespace}', [tablespacesController::class, 'createTemporaryTablespace']);
 //Delete a tablespace
 Route::get('/delete/{tablespace}', [tablespacesController::class, 'deleteTablespace']);
+//----------------------------------------------------------
+//list schemas
+Route::get('/list-schemas', [tablespacesController::class, 'schemas']);
 //create a schema backup
 Route::get('/schema-backup/{schema}', [tablespacesController::class, 'createSchemaBackUp']);
 //delete .log and .dmp files
