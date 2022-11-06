@@ -65,5 +65,8 @@ Route::get('/list-privileges', [tablespacesController::class, 'privileges']);
 Route::get('/list-roles', [tablespacesController::class, 'roles']);
 //listar usuarios
 Route::get('/list-users', [tablespacesController::class, 'users']);
-//listar roles de un usuario
+//listar privilegios de un usuario
 Route::get('/list-privilages-user/{user}', [tablespacesController::class, 'privilegesOfAUser']);
+//asignar un rol a un usuario
+Route::get('/assign-role/{user}/{role}', [tablespacesController::class, 'assignRole']);
+

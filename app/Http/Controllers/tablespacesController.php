@@ -250,7 +250,7 @@ class tablespacesController extends Controller
         DB::statement('alter session set "_oracle_script"=true');
 
         DB::statement("GRANT " . $role . " TO " . $user);
-
+        
         return response(['message' => 'Rol asignado'], 201);
     }
     //listar los usuarios del sistema
@@ -268,6 +268,7 @@ class tablespacesController extends Controller
             ->where('grantee', $user)
             ->get();
     }
+    
 
 
 }
