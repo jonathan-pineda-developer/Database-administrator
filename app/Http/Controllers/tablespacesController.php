@@ -214,6 +214,7 @@ class tablespacesController extends Controller
         return response(['message' => 'Tablas analizadas', 'tablas' => $tablas], 200);
        
     }
+    //listar privilegios de un usuario 
      public function privileges()
     {
         return DB::table('DBA_SYS_PRIVS')
@@ -221,5 +222,13 @@ class tablespacesController extends Controller
             ->distinct()
             ->get();
     }
+    //listar roles de un usuario
+    public function roles()
+    {
+        return DB::table('DBA_ROLES')
+            ->select('role')
+            ->get();
+    }
+    
 
 }

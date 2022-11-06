@@ -33,7 +33,7 @@ Route::get('/', function () {
 
 //ver los tablespaces
 Route::get('/list-tablespaces', [tablespacesController::class, 'tablespaces']);
-//rize a tablespace
+//resize a tablespace
 Route::get('/resize/{tablespace}/{size}', [tablespacesController::class, 'resizeTablespace']);
 //resize a temporal tablespace
 Route::get('/resize-temp/{tablespace}/{size}', [tablespacesController::class, 'resizeTemporaryTablespace']);
@@ -60,3 +60,5 @@ Route::get('/analyze-schema/{schema}', [tablespacesController::class, 'analizeSc
 //----------------------------------------------------------
 //listar privilegios
 Route::get('/list-privileges', [tablespacesController::class, 'privileges']);
+//listar roles
+Route::get('/list-roles', [tablespacesController::class, 'roles']);
