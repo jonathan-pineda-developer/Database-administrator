@@ -260,6 +260,14 @@ class tablespacesController extends Controller
             ->select('username')
             ->get();
     }
+    //listar los privilegios de un usuario
+    public function privilegesOfAUser($user)
+    {
+        return DB::table('DBA_SYS_PRIVS')
+            ->select('privilege')
+            ->where('grantee', $user)
+            ->get();
+    }
 
 
 }
