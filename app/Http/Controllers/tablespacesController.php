@@ -229,6 +229,37 @@ class tablespacesController extends Controller
             ->select('role')
             ->get();
     }
-    
+    //asignar un role a un usuario
+   /*   METODO POST PARA ASIGNAR UN ROLE A UN USUARIO
+    public function assignRole(Request $request)
+    {
+        $fields = $request->validate([
+            "user" => "required",
+            "role" => "required",
+        ]);
+
+        DB::statement('alter session set "_oracle_script"=true');
+
+        DB::statement("GRANT " . $fields['role'] . " TO " . $fields['user']);
+
+        return response(['message' => 'Rol asignado'], 201);
+    }*/
+    //Asignar un role a un usuario por metodo get
+    public function assignRole($user, $role)
+    {
+        DB::statement('alter session set "_oracle_script"=true');
+
+        DB::statement("GRANT " . $role . " TO " . $user);
+
+        return response(['message' => 'Rol asignado'], 201);
+    }
+    //listar los usuarios del sistema
+    public function users()
+    {
+        return DB::table('DBA_USERS')
+            ->select('username')
+            ->get();
+    }
+
 
 }

@@ -31,6 +31,7 @@ Route::get('/', function () {
 //Route::delete('tablespaces/delete/{tablespace}', [tablespacesController::class, 'deleteTablespace']);
 //Route::get('tablespaces/list', [tablespacesController::class, 'tablespaces']);
 
+//--------------------------------------------------------------
 //ver los tablespaces
 Route::get('/list-tablespaces', [tablespacesController::class, 'tablespaces']);
 //resize a tablespace
@@ -62,3 +63,5 @@ Route::get('/analyze-schema/{schema}', [tablespacesController::class, 'analizeSc
 Route::get('/list-privileges', [tablespacesController::class, 'privileges']);
 //listar roles
 Route::get('/list-roles', [tablespacesController::class, 'roles']);
+//listar usuarios
+Route::get('/list-users', [tablespacesController::class, 'users']);
