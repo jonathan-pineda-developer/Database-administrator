@@ -11,6 +11,12 @@ use Illuminate\Support\Facades\Hash;
 class tablespacesController extends Controller
 {
     //
+
+    public function index()
+    {
+        return view('tablespaces.index');
+    }
+
     public function schemas()
     {
         $schemas = DB::select('select username as schema_name
@@ -31,20 +37,19 @@ class tablespacesController extends Controller
         return response(['path' => public_path() . "\\respaldos"], 200);
     }
 
-    /* PARA POST METHOD CREAR TABLESPACE
-    public function createTablespace(Request $request)
+    // PARA POST METHOD CREAR TABLESPACE
+    public function createtable(Request $request)
     {
-        $fields = $request->validate([
-            'name' => 'required',
-        ]);
+      $fields = $request->input('name');
+
 
         DB::statement('alter session set "_oracle_script"=true');
 
-        DB::statement("CREATE TABLESPACE " . $fields['name'] . " DATAFILE '" . 'C:\\app\\50683\\product\\21c\\oradata\\XE\vscode\\tablespaces\\' . $fields['name'] . ".DBF' SIZE 100M AUTOEXTEND ON NEXT 50");
+        DB::statement("CREATE TABLESPACE " . $fields . " DATAFILE '" . 'C:\\app\\50683\\product\\21c\\oradata\\XE\vscode\\tablespaces\\' . $fields . ".DBF' SIZE 100M AUTOEXTEND ON NEXT 50");
 
         return response(['message' => 'Tablespace creado con éxito'], 201);
-    }*/
-
+    }
+    /*
     public function createTablespace($tablespace)
     {
         DB::statement('alter session set "_oracle_script"=true');
@@ -52,7 +57,7 @@ class tablespacesController extends Controller
         DB::statement("CREATE TABLESPACE " . $tablespace . " DATAFILE '" . 'C:\\app\\50683\\product\\21c\\oradata\\XE\\vscode\\tablespaces\\' . $tablespace . ".DBF' SIZE 100M AUTOEXTEND ON NEXT 50");
 
         return response(['message' => 'Tablespace creado con éxito'], 201);
-    }
+    }*/
  /* PARA POST METHOD CREAR TABLESPACE TEMPORAL
     public function createTemporaryTablespace(Request $request)
     {

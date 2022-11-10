@@ -1,5 +1,6 @@
 <?php
 
+namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -8,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 //use tablespacesController:
 use App\Http\Controllers\tablespacesController;
 use Illuminate\Http\Request;
+use App\Http\Requests;
 
 
 /*
@@ -20,13 +22,27 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('welcome');
 });
+//un ruta para un el formulario de crear tablespace por get
+Route::get('/create-table', function () {
+    return view('tablespace/create');
+});
+Route::post('/tablespace/createtable', [tablespacesController::class, 'createtable']);
 
+/*
+Route::controller(tablespacesController::class)->group(function () {
+    //ruta que regrese la vista index.blade.php que está en la carpeta tablespace en vistas
+    //Route::post('/tablespace/createtable','createtable')
+});*/
+
+
+//Route::get('tablespaces/index', [tablespacesController::class, 'index']);
 //Route::get('tablespaces/schemas', [tablespacesController::class, 'schemas']);
 //Route::get('tablespaces/publicPath', [tablespacesController::class, 'publicPath']);
-//Route::post('tablespaces/createTablespace', [tablespacesController::class, 'createTablespace']);
+
+
 //Route::post('tablespaces/temporary', [tablespacesController::class, 'createTemporaryTablespace']);
 //Route::delete('tablespaces/delete/{tablespace}', [tablespacesController::class, 'deleteTablespace']);
 //Route::get('tablespaces/list', [tablespacesController::class, 'tablespaces']);

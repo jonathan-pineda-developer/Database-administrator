@@ -1,5 +1,5 @@
 ;;; 
-Export: Release 21.0.0.0.0 - Production on Sáb Nov 5 16:25:29 2022
+Export: Release 21.0.0.0.0 - Production on Mié Nov 9 22:26:26 2022
 Version 21.3.0.0.0
 
 Copyright (c) 1982, 2021, Oracle and/or its affiliates.  All rights reserved.
@@ -16,4 +16,4 @@ La tabla maestra "SYSTEM"."SYS_EXPORT_SCHEMA_01" se ha cargado/descargado correc
 ******************************************************************************
 El juego de archivos de volcado para SYSTEM.SYS_EXPORT_SCHEMA_01 es:
   C:\XAMPP\HTDOCS\VSCODE21C\DBALOCAL\PUBLIC\RESPALDOS\NEWUSER.DMP
-El trabajo "SYSTEM"."SYS_EXPORT_SCHEMA_01" ha terminado correctamente en Sáb Nov 5 16:26:00 2022 elapsed 0 00:00:29
+El trabajo "SYSTEM"."SYS_EXPORT_SCHEMA_01" ha terminado correctamente en Mié Nov 9 22:27:05 2022 elapsed 0 00:00:36
