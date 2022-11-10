@@ -31,7 +31,7 @@ Route::get('/', function () {
 //Route::delete('tablespaces/delete/{tablespace}', [tablespacesController::class, 'deleteTablespace']);
 //Route::get('tablespaces/list', [tablespacesController::class, 'tablespaces']);
 
-//--------------------------------------------------------------
+//-------------------------TABLESPACES-------------------------------------
 //ver los tablespaces
 Route::get('/list-tablespaces', [tablespacesController::class, 'tablespaces']);
 //resize a tablespace
@@ -44,7 +44,7 @@ Route::get('/create/{tablespace}', [tablespacesController::class, 'createTablesp
 Route::get('/create-temp/{tablespace}', [tablespacesController::class, 'createTemporaryTablespace']);
 //Delete a tablespace
 Route::get('/delete/{tablespace}', [tablespacesController::class, 'deleteTablespace']);
-//----------------------------------------------------------
+//-----------------------------BACKUPS SCHEMA-----------------------------
 //list schemas
 Route::get('/list-schemas', [tablespacesController::class, 'schemas']);
 //create a schema backup
@@ -57,6 +57,8 @@ Route::get('/schema-table/{schema}/{table}', [tablespacesController::class, 'col
 Route::get('/schema-tables/{schema}', [tablespacesController::class, 'tablasDeSchemas']);
 //analizar un schema
 Route::get('/analyze-schema/{schema}', [tablespacesController::class, 'analizeSchema']);
+//crear un bakup de una tabla SIMILAR A LA SCHEMA TABLE
+Route::get('/table-backup/{schema}/{table}', [tablespacesController::class, 'createTableBackUp']);
 
 //----------------------------------------------------------
 //listar privilegios

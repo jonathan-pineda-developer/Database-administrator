@@ -13,11 +13,18 @@ class tablespacesController extends Controller
     //
     public function schemas()
     {
-        return DB::select(
+        $schemas = DB::select('select username as schema_name
+        from sys.dba_users
+        order by username');
+        /*return DB::select(
             'select username as schema_name
             from sys.dba_users
             order by username'
-        );
+        );*/
+    //REGRESA UN JSOM CON EL SELECT DE LAS BASES DE DATOS
+    return $schemas;
+    // return response ()-> json($schemas,200,[]);
+
     }
     public function publicPath()
     {
@@ -42,7 +49,7 @@ class tablespacesController extends Controller
     {
         DB::statement('alter session set "_oracle_script"=true');
 
-        DB::statement("CREATE TABLESPACE " . $tablespace . " DATAFILE '" . 'C:\\app\\50683\\product\\21c\\oradata\\XE\vscode\\tablespaces\\' . $tablespace . ".DBF' SIZE 100M AUTOEXTEND ON NEXT 50");
+        DB::statement("CREATE TABLESPACE " . $tablespace . " DATAFILE '" . 'C:\\app\\50683\\product\\21c\\oradata\\XE\\vscode\\tablespaces\\' . $tablespace . ".DBF' SIZE 100M AUTOEXTEND ON NEXT 50");
 
         return response(['message' => 'Tablespace creado con éxito'], 201);
     }
@@ -63,7 +70,7 @@ class tablespacesController extends Controller
     {
         DB::statement('alter session set "_oracle_script"=true');
 
-        DB::statement("CREATE TEMPORARY TABLESPACE " . $tablespace . "_TEMP TEMPFILE '" . 'C:\\app\\50683\\product\\21c\\oradata\\XE\vscode\\tablespaces\\' . $tablespace . "_TEMP.DBF' SIZE 25M AUTOEXTEND ON NEXT 50");
+        DB::statement("CREATE TEMPORARY TABLESPACE " . $tablespace . "_TEMP TEMPFILE '" . 'C:\\app\\50683\\product\\21c\\oradata\\XE\\vscode\\tablespaces\\' . $tablespace . "_TEMP.DBF' SIZE 25M AUTOEXTEND ON NEXT 50");
 
         return response(['message' => 'TempFile  creado con éxito'], 201);
     }
@@ -269,6 +276,39 @@ class tablespacesController extends Controller
             ->get();
     }
     
+
+
+    // crear un respaldo de una tabla de un esquema
+
+
+    /*public function createTableOfSchemaBackUp($schema, $table)
+    {
+        DB::statement('alter session set "_oracle_script"=true');
+
+        DB::statement("CREATE OR REPLACE DIRECTORY RESPALDO AS 'C:\\app\\50683\\product\\21c\\oradata\\XE\\vscode\\tablespaces\\'");
+
+        $cmd = "EXPDP NEUSER/VSCODE21C@XE TABLES=" . $schema . "." . $table . " DIRECTORY=RESPALDO DUMPFILE=" . $schema . $table . ".DMP LOGFILE=" . $schema . $table . ".LOG";
+
+        shell_exec($cmd);
+
+        return response()->json(['message' => 'Respaldo de la tabla ' . $table . ' del schema ' . $schema . ' creado correctamente'], 200);
+    }*/
+    public function createTableBackUp($schema, $table)
+    {
+        DB::statement('alter session set "_oracle_script"=true');
+
+        DB::statement("CREATE OR REPLACE DIRECTORY RESPALDO AS " . "'" . public_path() . "\\respaldos'");
+
+        $cmd = "EXPDP NEWUSER/VSCODE21C@XE TABLES=" . $schema . "." . $table . " DIRECTORY=RESPALDO DUMPFILE=" . $table . ".DMP LOGFILE=" . $table . ".LOG";
+
+        shell_exec($cmd);
+
+        $path = 'respaldos/' . $table . '.DMP';
+
+        return response()->json(['message' => 'Respaldo de tabla creado', 'path' => $path], 201);
+    }
+
+
 
 
 }
