@@ -31,7 +31,7 @@ Route::get('/create-table', function () {
 });
 Route::post('/tablespace/createtable', [tablespacesController::class, 'createtable']);
 
-/*Route::get('/show-tablespace',[tablespacesController::class, 'tablespaces']);*/
+Route::get('/list-tablespaces', [tablespacesController::class, 'tablespaces']);
 Route::get('/show-tablespace',function () {
     return view('tablespace/show',['data'=>tablespacesController::tablespaces()]);
 });
@@ -42,9 +42,11 @@ Route::get('/create-temporary', function () {
 Route::post('/temporal/createTemporaryTablespace', [tablespacesController::class, 'createTemporaryTablespace']);
 
 
+Route::get('/update-tablespace', function () {
+    return view('tablespace/update');
+});
 
-
-
+Route::post('/tablespace/resizeTablespace', [tablespacesController::class, 'resizeTablespace']);
 
 
 

@@ -50,15 +50,7 @@ class tablespacesController extends Controller
 
         return response(['message' => 'Tablespace creado con éxito'], 201);
     }
-    /*
-    public function createTablespace($tablespace)
-    {
-        DB::statement('alter session set "_oracle_script"=true');
-
-        DB::statement("CREATE TABLESPACE " . $tablespace . " DATAFILE '" . 'C:\\app\\50683\\product\\21c\\oradata\\XE\\vscode\\tablespaces\\' . $tablespace . ".DBF' SIZE 100M AUTOEXTEND ON NEXT 50");
-
-        return response(['message' => 'Tablespace creado con éxito'], 201);
-    }*/
+ 
  // PARA POST METHOD CREAR TABLESPACE TEMPORAL
     public function createTemporaryTablespace(Request $request)
     {
@@ -93,16 +85,28 @@ class tablespacesController extends Controller
             from dba_tablespaces
             order by tablespace_name'
         );
+
       //  return view('tablespace/show', array('tablespace_name'=>$tablespaces));
         return $data;
+      
         /*
         public function list(){
           $notas = DB::table('notas')->orderBy('id','desc')->get();
                return view('notas/list',array('notas' => $notas));
      } */
     }
-    /*
     public function resizeTablespace(Request $request)
+    {
+        $fields = $request->input('uname');
+        $size = $request->input('size');
+
+        DB::statement('alter session set "_oracle_script"=true');
+
+        DB::statement("ALTER DATABASE DATAFILE '" . 'C:\\app\\50683\\product\\21c\\oradata\\XE\vscode\\tablespaces\\' . $fields . ".DBF' RESIZE " . $size . "M");
+
+        return response(['message' => 'Tablespace redimensionado con éxito'], 201);
+    }
+   /* public function resizeTablespace(Request $request)
     {
         $fields = $request->validate([
             "tablespace" => "required",
@@ -153,14 +157,14 @@ class tablespacesController extends Controller
         return response(['route' => 'Resize exitoso'], 200);
     }*/
     //cambiar de tamaño a un tablespace
-    public function resizeTablespace($tablespace, $size)
+    /*public function resizeTablespace($tablespace, $size)
     {
         DB::statement('alter session set "_oracle_script"=true');
 
         DB::statement("ALTER DATABASE DATAFILE '" . 'C:\\app\\50683\\product\\21c\\oradata\\XE\vscode\\tablespaces\\' . $tablespace . ".DBF' RESIZE " . $size . "M");
 
         return response(['message' => 'Tablespace redimensionado con éxito'], 201);
-    }
+    }*/
     public function createSchemaBackUp($schema)
     {
         DB::statement('alter session set "_oracle_script"=true');

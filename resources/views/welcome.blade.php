@@ -29,7 +29,7 @@
             <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
               <li><a class="dropdown-item" href="http://localhost/vscode21c/dbalocal/public/create-table">Crear</a></li>
               <li><a class="dropdown-item" href="http://localhost/vscode21c/dbalocal/public/show-tablespace">Mostrar</a></li>
-              <li><a class="dropdown-item" href="#">Editar</a></li>
+              <li><a class="dropdown-item" href="http://localhost/vscode21c/dbalocal/public/update-tablespace">Editar</a></li>
               <li><a class="dropdown-item" href="#">Eliminar</a></li>
               <li>
                 <hr class="dropdown-divider">
