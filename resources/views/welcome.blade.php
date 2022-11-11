@@ -1,116 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="css.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-	<link rel="icon" type="image/x-icon" href="favicon.png">
     <meta charset="UTF-8">
-    <title>Multi Level DropDown</title>
-    <style>
-html,body{
- padding: 0;
- margin: 0;
- font-family: 'Open Sans', sans-serif;
-}
-ul{
-    margin: 250px auto;
-    padding: 250px;
-    list-style: none;
-    position: center;
-}
-a{
-    margin: 0;
-    text-align: center;
-    padding: 12px 15px 12px 15px;
-    background: #5F6975;
-    color: white;
-    display: block;
-    text-decoration: none;
-}
-.mainMenu>li{
-    display: inline-flex;
-    margin-left: -5px;
-}
-li:hover>a{
-    background: #4B545F;
-    cursor: pointer;
-}
-.subMenu{
-    position: absolute;
-    display: none;
-}
-.subMenu li{
-    border-top: 1px solid #575F6A;
-    border-bottom: 1px solid #6B727C;
-    position: center;
-}
-.mainMenu>li:hover .subMenu{
-    display: block;
-   
-}
-.SuperSubMenu{
-    position: absolute;
-    top: 0;
-    right: 0;
-    -ms-transform: translate(100%,0);
-    -webkit-transform: translate(100%,0);
-    transform:translate(100%,0);
-    display: none;
-}
-.subMenu li:hover>.SuperSubMenu{
-    display: block;
-}
-    </style>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Bienvenido</title>
 </head>
 <body>
-<nav>
-    <ul class="mainMenu">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Tutorial</a>
-         <ul class="subMenu">
-             <li><a href="#">Photoshop</a></li>
-             <li><a href="#">Illustrator</a></li>
-             <li><a href="#">Web Design</a>
-                 <ul class="SuperSubMenu">
-                     <li><a href="#">HTML</a></li>
-                     <li><a>CSS</a>
-                         <ul class="SuperSubMenu">
-                             <li><a href="#">HTML</a></li>
-                             <li><a href="#">CSS</a>
-                                 <ul class="SuperSubMenu">
-                                     <li><a href="#">HTML</a></li>
-                                     <li><a href="#">CSS</a>
-                                         <ul class="SuperSubMenu">
-                                             <li><a href="#">HTML</a></li>
-                                             <li><a href="#">CSS</a>
-                                                 <ul class="SuperSubMenu">
-                                                     <li><a href="#">HTML</a></li>
-                                                     <li><a href="#">CSS</a>
-                                                         <ul class="SuperSubMenu">
-                                                             <li><a href="#">HTML</a></li>
-                                                             <li><a href="#">CSS</a>
-                                                                 <ul class="SuperSubMenu">
-                                                                     <li><a href="#">HTML</a></li>
-                                                                     <li><a href="#">CSS</a></li>
-                                                                 </ul>
-                                                             </li>
-                                                         </ul>
-                                                     </li>
-                                                 </ul>
-                                             </li>
-                                         </ul>
-                                     </li>
-                                 </ul>
-                             </li>
-                         </ul>
-                     </li>
-                 </ul>
-             </li>
-         </ul>
-        </li>
-        <li><a href="#">Articles</a></li>
-        <li><a href="#">Inspiration</a></li>
-    </ul>
+<nav class="navbar navbar-light bg-light fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Oracle LocalDB</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Sistema web de Oracle 21c</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            
+           <li class="nav-item dropdown">
+            <a class="nav-link dropdown" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+             Tablespace
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+              <li><a class="dropdown-item" href="http://localhost/vscode21c/dbalocal/public/create-table">Crear</a></li>
+              <li><a class="dropdown-item" href="#">Mostrar</a></li>
+              <li><a class="dropdown-item" href="#">Editar</a></li>
+              <li><a class="dropdown-item" href="#">Eliminar</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class=" nav-link disabled" href="#">Temporales</a></li>
+            
+              <li><a class="dropdown-item" href="#">Crear</a></li>
+              <li><a class="dropdown-item" href="#">Mostrar</a></li>
+              <li><a class="dropdown-item" href="#">Editar</a></li>
+              <li><a class="dropdown-item" href="#">Eliminar</a></li>
+            </ul>
+            </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Consultas
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+              <li><a class="dropdown-item" href="#">Ejecución</a></li>
+              <li><a class="dropdown-item" href="#">Estadística</a></li>
+            </ul>
+            </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+             Schemas
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+            </ul>
+            </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Respaldos
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+              <li><a class="dropdown-item" href="#">Sistema oracle</a></li>
+              <li><a class="dropdown-item" href="#">Esquema</a></li>
+              <li><a class="dropdown-item" href="#">Base de datos Local</a></li>
+            </ul>
+            </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+             Indices
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+        </ul>
+     <!---   <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Buscar</button>--->
+        </form>
+      </div>
+    </div>
+  </div>
 </nav>
- </body>
+    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
 </html>

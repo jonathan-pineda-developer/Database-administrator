@@ -31,16 +31,6 @@ Route::get('/create-table', function () {
 });
 Route::post('/tablespace/createtable', [tablespacesController::class, 'createtable']);
 
-/*
-Route::controller(tablespacesController::class)->group(function () {
-    //ruta que regrese la vista index.blade.php que está en la carpeta tablespace en vistas
-    //Route::post('/tablespace/createtable','createtable')
-});*/
-
-
-//Route::get('tablespaces/index', [tablespacesController::class, 'index']);
-//Route::get('tablespaces/schemas', [tablespacesController::class, 'schemas']);
-//Route::get('tablespaces/publicPath', [tablespacesController::class, 'publicPath']);
 
 
 //Route::post('tablespaces/temporary', [tablespacesController::class, 'createTemporaryTablespace']);

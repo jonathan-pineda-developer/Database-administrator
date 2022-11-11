@@ -7,9 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-HOLA
-
-   
-</form>
+    
 </body>
 </html>
