@@ -28,7 +28,7 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
               <li><a class="dropdown-item" href="http://localhost/vscode21c/dbalocal/public/create-table">Crear</a></li>
-              <li><a class="dropdown-item" href="#">Mostrar</a></li>
+              <li><a class="dropdown-item" href="http://localhost/vscode21c/dbalocal/public/show-tablespace">Mostrar</a></li>
               <li><a class="dropdown-item" href="#">Editar</a></li>
               <li><a class="dropdown-item" href="#">Eliminar</a></li>
               <li>
@@ -36,7 +36,7 @@
               </li>
               <li><a class=" nav-link disabled" href="#">Temporales</a></li>
             
-              <li><a class="dropdown-item" href="#">Crear</a></li>
+              <li><a class="dropdown-item" href="http://localhost/vscode21c/dbalocal/public/create-temporary">Crear</a></li>
               <li><a class="dropdown-item" href="#">Mostrar</a></li>
               <li><a class="dropdown-item" href="#">Editar</a></li>
               <li><a class="dropdown-item" href="#">Eliminar</a></li>

@@ -22,6 +22,7 @@ class tablespacesController extends Controller
         $schemas = DB::select('select username as schema_name
         from sys.dba_users
         order by username');
+        
         /*return DB::select(
             'select username as schema_name
             from sys.dba_users
@@ -58,28 +59,17 @@ class tablespacesController extends Controller
 
         return response(['message' => 'Tablespace creado con éxito'], 201);
     }*/
- /* PARA POST METHOD CREAR TABLESPACE TEMPORAL
+ // PARA POST METHOD CREAR TABLESPACE TEMPORAL
     public function createTemporaryTablespace(Request $request)
     {
-        $fields = $request->validate([
-            'name' => 'required',
-        ]);
+        $fields = $request->input('uname');
 
         DB::statement('alter session set "_oracle_script"=true');
 
-        DB::statement("CREATE TEMPORARY TABLESPACE " . $fields['name'] . "_TEMP TEMPFILE '" . public_path() . "\\tablespaces\\" . $fields['name'] . "_TEMP.DBF' SIZE 25M AUTOEXTEND ON NEXT 50");
+        DB::statement("CREATE TEMPORARY TABLESPACE " . $fields . "_TEMP TEMPFILE '" . public_path() . "\\tablespaces\\" . $fields . "_TEMP.DBF' SIZE 25M AUTOEXTEND ON NEXT 50");
 
         return response(['message' => 'Tablespace creado con éxito'], 201);
-    }*/
-    public function createTemporaryTablespace($tablespace)
-    {
-        DB::statement('alter session set "_oracle_script"=true');
-
-        DB::statement("CREATE TEMPORARY TABLESPACE " . $tablespace . "_TEMP TEMPFILE '" . 'C:\\app\\50683\\product\\21c\\oradata\\XE\\vscode\\tablespaces\\' . $tablespace . "_TEMP.DBF' SIZE 25M AUTOEXTEND ON NEXT 50");
-
-        return response(['message' => 'TempFile  creado con éxito'], 201);
     }
-
     public function deleteTablespace($tablespace)
     {
         DB::statement('alter session set "_oracle_script"=true');
@@ -96,13 +86,20 @@ class tablespacesController extends Controller
             ->get();
             
     }*/
-    public function tablespaces()
+    public static function tablespaces()
     {
-        return DB::select(
+        $data =  DB::select(
             'select tablespace_name as tablespace_name
             from dba_tablespaces
             order by tablespace_name'
         );
+      //  return view('tablespace/show', array('tablespace_name'=>$tablespaces));
+        return $data;
+        /*
+        public function list(){
+          $notas = DB::table('notas')->orderBy('id','desc')->get();
+               return view('notas/list',array('notas' => $notas));
+     } */
     }
     /*
     public function resizeTablespace(Request $request)
