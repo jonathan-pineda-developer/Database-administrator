@@ -102,8 +102,9 @@ class tablespacesController extends Controller
     }
     public function resizeTablespace(Request $request)
     {
-        $fields = $request->input('uname');
+        $fields = $request->input('dee');
         $size = $request->input('size');
+       
 
         DB::statement('alter session set "_oracle_script"=true');
 

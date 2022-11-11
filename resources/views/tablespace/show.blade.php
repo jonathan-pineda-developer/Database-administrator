@@ -14,7 +14,7 @@
             <option value="{{ $table->tablespace_name }}">{{ $table->tablespace_name }}</option>
         @endforeach
     </select>
-
+    
 
    
 </body>

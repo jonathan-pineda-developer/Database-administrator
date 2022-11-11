@@ -15,7 +15,7 @@
 <br>
 <div class="row">
 	<div class="col-xl-7 mx-auto">
-		<h6 class="mb-0 text-uppercase">Administración de tablespaces - Temporary - Resize</h6>
+		<h6 class="mb-0 text-uppercase">Administración de tablespaces - tablespace - Resize</h6>
 		<hr>
 		<div class="card border-top border-0 border-4 border-danger">
 			<div class="card-body p-5">
@@ -26,19 +26,26 @@
 				</div>
 				<hr>
 				<form class="row g-3 was-validated"form action="{{ url('tablespace/resizeTablespace') }}" method="POST">
-        @csrf
-					<div class="col-md-6">
+       				 @csrf
+					<!--<div class="col-md-6">
 						<label for="uname" class="form-label">Nombre del tablespace</label>
 						<div class="input-group"> <span class="input-group-text bg-transparent"><i class="bx bxs-user"></i></span>
 							<input type="text" class="form-control border-start-0" id="uname" placeholder="Nombre del tablespace" name="uname" required>
                                 <div class="valid-feedback">Nombre ingresado</div>
                                 <div class="invalid-feedback">Este espacio es requerido.</div>
 						</div>
-					</div>
+					</div>--->
+					<label for="uname" class="form-label">Seleccione un tablespace</label>
+					 <select class="form-select" aria-label="Default select example" id = "dee" name = "dee" required>
+							<option  selected></option>
+							   @foreach($data as $table)
+           							 <option  value="{{ $table->tablespace_name }}">{{ $table->tablespace_name }}</option>
+        						@endforeach
+						 </select>	
                     <div class="col-md-6">
 						<label for="uname" class="form-label">Tamaño del tablespace</label>
 						<div class="input-group"> <span class="input-group-text bg-transparent"><i class="bx bxs-user"></i></span>
-                             <input class="form-control  border-start-0" type="number" placeholder="50 Mega Bytes por defecto" id ="size" name="size" value="50" required >
+                             <input class="form-control  border-start-0" type="number" placeholder="100 Mega Bytes por defecto" id ="size" name="size" value="150" required >
                                 <div class="valid-feedback">Valor aceptado</div>
                                 <div class="invalid-feedback">Solo se permiten numeros</div>
 						</div>

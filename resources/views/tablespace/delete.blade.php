@@ -28,17 +28,37 @@
 				<hr>
 				<form class="row g-3 was-validated"form action="{{ url('tablespace/deleteTablespace') }}" method="POST">
                       @csrf
-					<div class="col-md-6">
+					<!--<div class="col-md-6">
 						<label for="uname" class="form-label">Nombre del tablespace</label>
 						<div class="input-group"> <span class="input-group-text bg-transparent"><i class="bx bxs-user"></i></span>
 							<input type="text" class="form-control border-start-0" id="uname" placeholder="Nombre del tablespace" name="uname" required>
                                 <div class="valid-feedback">Valor permitido</div>
                                 <div class="invalid-feedback">Este espacio es requerido</div>
 						</div>
-					</div>
-         
+					</div>-->
+					<div class="col-md-6">
+						<label for="uname" class="form-label">Nombre del tablespace</label>
+						<br>
+						<div class="input-group"> <span class="input-group-text bg-transparent"><i class="bx bxs-user"></i></span>
+							<select id = "uname" name = "uname" class="form-control " required>
+							<option  enabled selected  ></option>
+								@foreach($data as $table)
+									<option value="{{ $table->tablespace_name }}">{{ $table->tablespace_name }}</option>
+								@endforeach
+							</select>
+								<div class="valid-feedback">Valor permitido</div>
+								<div class="invalid-feedback">Debe seleccionar un tablespace</div>
+						</div>
+					<!--<select class="form-select" aria-label="Default select example" id = "dee" name = "dee" required>
+							<option  selected></option>
+							   @foreach($data as $table)
+           							 <option  value="{{ $table->tablespace_name }}">{{ $table->tablespace_name }}</option>
+        						@endforeach
+						 </select>	--->
+					<br>
+					<br>
 					<div class="col-12">
-						<button type="submit" class="btn btn-danger px-5">Eliminar</button>
+					<button type="submit" class="btn btn-danger px-5">Eliminar</button>
 					</div>
 				</form>
 			</div>

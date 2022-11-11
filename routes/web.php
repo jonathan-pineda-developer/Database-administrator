@@ -45,13 +45,13 @@ Route::post('/temporal/createTemporaryTablespace', [tablespacesController::class
 
 
 Route::get('/update-tablespace', function () {
-    return view('tablespace/update');
+    return view('tablespace/update',['data'=>tablespacesController::tablespaces()]);
 });
 
 Route::post('/tablespace/resizeTablespace', [tablespacesController::class, 'resizeTablespace']);
 
 Route::get('/delete-tablespace', function () {
-    return view('tablespace/delete');
+    return view('tablespace/delete',['data'=>tablespacesController::tablespaces()]);
 });
 
 Route::post('/tablespace/deleteTablespace', [tablespacesController::class, 'deleteTablespace']);
