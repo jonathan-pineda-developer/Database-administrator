@@ -48,8 +48,11 @@ Route::get('/update-tablespace', function () {
 
 Route::post('/tablespace/resizeTablespace', [tablespacesController::class, 'resizeTablespace']);
 
+Route::get('/delete-tablespace', function () {
+    return view('tablespace/delete');
+});
 
-
+Route::post('/tablespace/deleteTablespace', [tablespacesController::class, 'deleteTablespace']);
 
 
 
@@ -88,8 +91,6 @@ Route::get('/resize-temp/{tablespace}/{size}', [tablespacesController::class, 'r
 Route::get('/create/{tablespace}', [tablespacesController::class, 'createTablespace']);
 //create a temporary tablespace
 Route::get('/create-temp/{tablespace}', [tablespacesController::class, 'createTemporaryTablespace']);
-//Delete a tablespace
-Route::get('/delete/{tablespace}', [tablespacesController::class, 'deleteTablespace']);
 //-----------------------------BACKUPS SCHEMA-----------------------------
 //list schemas
 Route::get('/list-schemas', [tablespacesController::class, 'schemas']);

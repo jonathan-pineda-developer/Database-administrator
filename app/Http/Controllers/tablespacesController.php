@@ -62,13 +62,23 @@ class tablespacesController extends Controller
 
         return response(['message' => 'Tablespace creado con éxito'], 201);
     }
-    public function deleteTablespace($tablespace)
+    /*public function deleteTablespace($tablespace)
     {
         DB::statement('alter session set "_oracle_script"=true');
 
         DB::statement("DROP TABLESPACE " . $tablespace . " INCLUDING CONTENTS AND DATAFILES");
 
         return response(null, 204);
+    }*/
+    public function deleteTablespace(Request $request)
+    {
+        $fields = $request->input('uname');
+
+        DB::statement('alter session set "_oracle_script"=true');
+
+        DB::statement("DROP TABLESPACE " . $fields . " INCLUDING CONTENTS AND DATAFILES");
+
+        return response(['message' => 'Tablespace eliminado con éxito'], 201);
     }
 
     /*public function tablespaces()
