@@ -40,7 +40,7 @@ class tablespacesController extends Controller
     // PARA POST METHOD CREAR TABLESPACE
     public function createtable(Request $request)
     {
-      $fields = $request->input('name');
+      $fields = $request->input('uname');
 
 
         DB::statement('alter session set "_oracle_script"=true');

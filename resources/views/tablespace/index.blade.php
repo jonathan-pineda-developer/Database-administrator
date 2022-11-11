@@ -7,13 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-<form action="{{url('create-table/')}}"  method ="POST">
-     @csrf
-    <label for ="nombre">Nombre del tablespace: </label>
-    <input type="text" name="name" id="name">
-    <br>   
-    <input type="submit" value="Enviar">
-   @METHOD('POST')
+HOLA
 
    
 </form>
