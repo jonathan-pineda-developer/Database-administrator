@@ -9,6 +9,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <title>Tablespace-create</title>
+	<style>
+
+url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='#{$form-feedback-icon-invalid-color}'><circle cx='6' cy='6' r='4.5'/><path stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/><circle cx='6' cy='8.2' r='.6' fill='#{$form-feedback-icon-invalid-color}' stroke='none'/></svg>");
+	</style>
 </head>
 <body>
 <!--end breadcrumb-->
@@ -16,7 +20,7 @@
 <br>
 <div class="row">
 	<div class="col-xl-7 mx-auto">
-		<h6 class="mb-0 text-uppercase">Administración de tablespaces - borrar - tablespace</h6>
+		<h6 class="mb-0 text-uppercase">Administración de tablespaces - tablespace - Eliminar</h6>
 		<hr>
 		<div class="card border-top border-0 border-4 border-danger">
 			<div class="card-body p-5">
@@ -41,7 +45,7 @@
 						<br>
 						<div class="input-group"> <span class="input-group-text bg-transparent"><i class="bx bxs-user"></i></span>
 							<select id = "uname" name = "uname" class="form-control " required>
-							<option  enabled selected  ></option>
+							<option  enabled selected value=""  >Seleccione un tablespace</option>
 								@foreach($data as $table)
 									<option value="{{ $table->tablespace_name }}">{{ $table->tablespace_name }}</option>
 								@endforeach
@@ -58,7 +62,7 @@
 					<br>
 					<br>
 					<div class="col-12">
-					<button type="submit" class="btn btn-danger px-5">Eliminar</button>
+					<button type="submit" class="btn btn-danger px-5 form-feedback-icon-invalid">Eliminar</button>
 					</div>
 				</form>
 			</div>

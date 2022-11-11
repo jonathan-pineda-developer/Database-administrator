@@ -54,19 +54,19 @@
 						<label for="uname" class="form-label">Nombre del tablespace</label>
 						<div class="input-group"> <span class="input-group-text bg-transparent"><i class="bx bxs-user"></i></span>
 							<input type="text" class="form-control border-start-0" id="uname" placeholder="Nombre del tablespace" name="uname" required>
-              <div class="valid-feedback">Nombre ingresado</div>
-              <div class="invalid-feedback">Este espacio es requerido.</div>
+              <div class="valid-feedback">Formato válido</div>
+              <div class="invalid-feedback">El nombre es requerido</div>
 						</div>
 					</div>
           <div class="col-md-6">
 						<label for="uname" class="form-label">Tamaño del tablespace</label>
 						<div class="input-group"> <span class="input-group-text bg-transparent"><i class="bx bxs-user"></i></span>
-            <input class="form-control" type="text" placeholder="50 Mega Bytes" aria-label="Disabled input example" disabled>
+            <input class="form-control" type="text" placeholder="100 Mega Bytes" aria-label="Disabled input example" disabled>
 						</div>
 					</div>
          
 					<div class="col-12">
-						<button type="submit" class="btn btn-danger px-5">Crear</button>
+						<button type="submit" class="btn btn-secondary px-5">Crear</button>
 					</div>
 				</form>
 			</div>
