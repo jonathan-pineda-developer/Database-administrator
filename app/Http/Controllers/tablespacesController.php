@@ -72,11 +72,13 @@ class tablespacesController extends Controller
     }*/
     public function deleteTablespace(Request $request)
     {
-        $fields = $request->input('uname');
+        $fields = $request->input('uname'); //dee
 
         DB::statement('alter session set "_oracle_script"=true');
 
         DB::statement("DROP TABLESPACE " . $fields . " INCLUDING CONTENTS AND DATAFILES");
+
+       // redirect()->route('tablespace.delete')->with('message', 'Tablespace eliminado con éxito');
 
         return response(['message' => 'Tablespace eliminado con éxito'], 201);
     }
@@ -95,15 +97,8 @@ class tablespacesController extends Controller
             from dba_tablespaces
             order by tablespace_name'
         );
-
-      //  return view('tablespace/show', array('tablespace_name'=>$tablespaces));
         return $data;
-      
-        /*
-        public function list(){
-          $notas = DB::table('notas')->orderBy('id','desc')->get();
-               return view('notas/list',array('notas' => $notas));
-     } */
+    
     }
     public function resizeTablespace(Request $request)
     {

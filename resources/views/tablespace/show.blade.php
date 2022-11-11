@@ -8,16 +8,13 @@
 </head>
 <body>
     <h1>Mostrar</h1>
-    @section('content')
-    <ul>
-        @forelse ($data as $tablespace)
-        <li> {{ $tablespace->tablespace_name }}</li>
-        @empty
-        <p>No users</p>
-        @endforelse
-    </ul>
-   
-    @endsection
+
+    <select id = "dee" name = "dee">
+        @foreach($data as $table)
+            <option value="{{ $table->tablespace_name }}">{{ $table->tablespace_name }}</option>
+        @endforeach
+    </select>
+
 
    
 </body>

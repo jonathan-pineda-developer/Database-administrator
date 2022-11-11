@@ -32,6 +32,8 @@ Route::get('/create-table', function () {
 Route::post('/tablespace/createtable', [tablespacesController::class, 'createtable']);
 
 Route::get('/list-tablespaces', [tablespacesController::class, 'tablespaces']);
+
+
 Route::get('/show-tablespace',function () {
     return view('tablespace/show',['data'=>tablespacesController::tablespaces()]);
 });
