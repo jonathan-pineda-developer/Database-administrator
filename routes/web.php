@@ -72,27 +72,19 @@ Route::get('/update-user', function () {
 });
 Route::post('/esquemas/updateUser', [tablespacesController::class, 'updateUser']);
 
+/*RESPALDOS */
+Route::get('/backup-user', function () {
+    return view('respaldos/usuario',['data4'=>tablespacesController::schemas()]);
+});
+Route::post('/respaldos/createSchemaBackUp', [tablespacesController::class, 'createSchemaBackUp']);
 
-
-
-
-
-
-
-
-
-//ver los tablespaces
-//Route::get('/list-tablespaces', [tablespacesController::class, 'tablespaces']);
-
-
-
-//Route::post('tablespaces/temporary', [tablespacesController::class, 'createTemporaryTablespace']);
-//Route::delete('tablespaces/delete/{tablespace}', [tablespacesController::class, 'deleteTablespace']);
-//Route::get('tablespaces/list', [tablespacesController::class, 'tablespaces']);
+Route::get('/delete-userbackup', function () {
+    return view('respaldos/usuario');
+});
+Route::post('/respaldos/borrarRespaldoUsuario', [tablespacesController::class, 'borrarRespaldoUsuario']);
 
 //-----------------------------BACKUPS SCHEMA-----------------------------
 
-Route::get('/schema-backup/{schema}', [tablespacesController::class, 'createSchemaBackUp']);
 //delete .log and .dmp files
 Route::get('/delete-backup/{schema}', [tablespacesController::class, 'deleteSchemaBackUp']);
 //listar una tabla de una schema(schema = basedatos && tabla = clase)[muestra las columnas de la tabla]

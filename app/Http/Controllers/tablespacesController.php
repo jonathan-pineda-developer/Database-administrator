@@ -55,14 +55,6 @@ class tablespacesController extends Controller
 
         return response(['message' => 'Tablespace creado con éxito'], 201);
     }
-    /*public function deleteTablespace($tablespace)
-    {
-        DB::statement('alter session set "_oracle_script"=true');
-
-        DB::statement("DROP TABLESPACE " . $tablespace . " INCLUDING CONTENTS AND DATAFILES");
-
-        return response(null, 204);
-    }*/
     public function deleteTablespace(Request $request)
     {
         $fields = $request->input('uname'); //dee
@@ -76,13 +68,6 @@ class tablespacesController extends Controller
         return response(['message' => 'Tablespace eliminado con éxito'], 201);
     }
 
-    /*public function tablespaces()
-    {
-        return  DB::table('USER_TABLESPACES')
-            ->select('TABLESPACE_NAME')
-            ->get();
-            
-    }*/
     public static function tablespaces()
     {
         $data =  DB::select(
@@ -105,26 +90,6 @@ class tablespacesController extends Controller
 
         return response(['message' => 'Tablespace redimensionado con éxito'], 201);
     }
-   /* public function resizeTablespace(Request $request)
-    {
-        $fields = $request->validate([
-            "tablespace" => "required",
-            "size" => "required",
-        ]);
-
-        DB::statement('alter session set "_oracle_script"=true');
-
-        $resultado = DB::table("v\$datafile")
-            ->select("NAME")
-            ->where("NAME", "LIKE", "%" . $fields['tablespace'] . "%")
-            ->get();
-
-        $resultado = $resultado[0]->name;
-
-        DB::statement("ALTER DATABASE DATAFILE '$resultado' resize " . $fields['size'] . "M");
-
-        return response(['route' => 'Resize exitoso'], 200);
-    }*/
 
   //METODO POST PARA CAMBIAR EL TAMAÑO DE UN TEMPORARY TABLESPACE
     public function resizeTemporaryTablespace(Request $request)
@@ -140,49 +105,46 @@ class tablespacesController extends Controller
 
         return response(['message' => 'Tablespace redimensionado con éxito'], 201);
     }
-    //cambiar de tamaño a un tablespace
-    /*public function resizeTablespace($tablespace, $size)
+   
+    public function createSchemaBackUp(Request $request)
     {
+        $fields = $request->input('uname');
         DB::statement('alter session set "_oracle_script"=true');
-
-        DB::statement("ALTER DATABASE DATAFILE '" . 'C:\\app\\50683\\product\\21c\\oradata\\XE\vscode\\tablespaces\\' . $tablespace . ".DBF' RESIZE " . $size . "M");
-
-        return response(['message' => 'Tablespace redimensionado con éxito'], 201);
-    }*/
-    public function createSchemaBackUp($schema)
-    {
-        DB::statement('alter session set "_oracle_script"=true');
-
-        // DB::statement("CREATE OR REPLACE DIRECTORY RESPALDO AS 'D:\Trabajos_U\II_semestre_2021\Administracion_Bases\Proyectos\Proyecto_1\Administrador-Respaldos\Adminstrador-Respaldos-Backend\public\respaldos'");
 
         DB::statement("CREATE OR REPLACE DIRECTORY RESPALDO AS " . "'" . public_path() . "\\respaldos'");
 
         // DB::statement('GRANT READ, WRITE ON DIRECTORY RESPALDO TO administrador_fachero');
 
-        $cmd = "EXPDP SYSTEM/coutJonathan97@XE SCHEMAS=" . $schema . " DIRECTORY=RESPALDO DUMPFILE=" . $schema . ".DMP LOGFILE=" . $schema . ".LOG";
+        $cmd = "EXPDP SYSTEM/coutJonathan97@XE SCHEMAS=" . $fields . " DIRECTORY=RESPALDO DUMPFILE=" . $fields . ".DMP LOGFILE=" . $fields . ".LOG";
 
         shell_exec($cmd);
 
-        $path = 'respaldos/' . $schema . '.DMP';
+       // $path = 'respaldos/' . $schema . '.DMP';
 
-        return response()->download($path);
+        return response(['message' => 'Respaldado creado con éxito'], 201);
+        
     }
-    public function deleteSchemaBackUp($schema)
+    public function borrarRespaldoUsuario(Request $request)
     {
-        $path = 'respaldos/' . $schema . '.DMP';
+        $schema = $request->input('uname');
+
+        $path = public_path() ."\\respaldos'". $schema . '.DMP';
 
         File::delete($path);
 
-        $path = 'respaldos/' . $schema . '.LOG';
+        $path = public_path() ."\\respaldos'". $schema . '.LOG';
 
         File::delete($path);
 
-        return response(null, 204);
+        return response()->json(['message' => 'Respaldo del schema ' . $schema . ' eliminado correctamente'], 200);
+    
     }
     // listar una tabla de una schema(schema = basedatos && tabla = clase)[muestra las columnas de la tabla] 
     public function columnOfATableOfASchema($schema, $table)
     {
-        return DB::select("select column_name from all_tab_columns where table_name ='" . $table . "' AND OWNER ='" . $schema . "'");
+
+        $data = DB::select("select column_name from all_tab_columns where table_name ='" . $table . "' AND OWNER ='" . $schema . "'");
+          return $data;      
     }
     public function tablasDeSchemas($schema)
     {

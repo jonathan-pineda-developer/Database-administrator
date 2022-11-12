@@ -68,8 +68,8 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
               <li><a class="dropdown-item" href="#">Sistema oracle</a></li>
-              <li><a class="dropdown-item" href="#">Esquema</a></li>
-              <li><a class="dropdown-item" href="#">Base de datos Local</a></li>
+              <li><a class="dropdown-item" href="http://localhost/vscode21c/dbalocal/public/backup-user">Usuario</a></li>
+              <li><a class="dropdown-item" href="#">Tablespace</a></li>
             </ul>
             </li>
           <li class="nav-item dropdown">
