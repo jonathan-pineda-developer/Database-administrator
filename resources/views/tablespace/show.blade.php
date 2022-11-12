@@ -10,29 +10,43 @@
 </head>
 <body>
     <!-- mostrar los tablespaces en una tabla-->
-
-    <div class="container mt-3">
-  <h2>Mostrar tablespaces</h2>
-  <p>Tablespaces en registrados en la base de datos de Oracle 21c</p>            
-  <table class="table table-hover table-secondary">
-    <thead>
-      <tr>
-        <th value=""></th>
-        <th value="">Tablespaces en el sistema</th>
-        <th value=""></th>
-      </tr>
-    </thead>
-    <tbody>
-    @foreach($data as $table)
-      <tr>
-        <td value=""></td>
-        <th scope="row">{{ $table->tablespace_name }}</th>
-        <td value="">Oracle Tablespace</td>
-      </tr>
-      @endforeach
-    </tbody>
-  </table>
-</div>
+   
+<div class="row">
+  <div class="col-xl-7 mx-auto">
+  <br>
+    <br>
+		<h6 class="mb-0 text-uppercase">Administración de tablespaces - tablespace - Eliminar</h6>
+		<hr>
+		<div class="card border-top border-0 border-4 border-danger">
+			<div class="card-body p-5">
+				<div class="card-title d-flex align-items-center">
+					<div><i class="bx bxs-user me-1 font-22 text-danger"></i>
+					</div>
+					<h5 class="mb-0 text-danger">Oracle 21c</h5>
+                     </div>
+                        <table class="table table-hover table-secondary table-bordered">
+                            <thead>
+                            <tr>
+                                <th value=""></th>
+                                <th value="">Tablespaces en el sistema</th>
+                                <th value=""> </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($data as $table)
+                            <tr>
+                                <td value=""></td>
+                                <th scope="row">{{ $table->tablespace_name }}</th>
+                                <td value="">Oracle Tablespace</td>
+                            </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 <!--<div class="container mt-3">
 <table class=" table table-bordered">
   <thead>
@@ -50,6 +64,6 @@
 </table>
 </div>
 --->
-   
+              
 </body>
 </html>
