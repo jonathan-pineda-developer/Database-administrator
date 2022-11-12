@@ -295,6 +295,14 @@ class tablespacesController extends Controller
 
         return response(['message' => 'Usuario actualizado'], 201);
     }
+    //AUDITORIA
+
+    public function auditoriaConexiones()
+    {
+        DB::statement('alter session set "_oracle_script"=true');
+        DB::statement('Audit connect');
+        return response(['message' => 'Auditoria de conexiones activada'], 201);
+    }
 
 
 

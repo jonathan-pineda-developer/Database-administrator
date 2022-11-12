@@ -26,7 +26,7 @@ Route::get('/home', function () {
     return view('welcome');
 });
 
-/* TABLESPACES - TEMPORARY */
+//----------------------------- TEMPORARY - TABLESPACES -----------------------------
 Route::get('/create-table', function () {
     return view('tablespace/create');
 });
@@ -52,7 +52,7 @@ Route::get('/update-temporal', function () {
 });
 Route::post('temporal/resizeTemporaryTablespace', [tablespacesController::class, 'resizeTemporaryTablespace']);
 
-/* SCHEMAS O USUARIOS */
+//----------------------------- USUARIOS - SCHEMAS -----------------------------
 Route::get('/show-schema', function () {
     return view('esquemas/show',['data2'=>tablespacesController::schemas()]);
 });
@@ -72,7 +72,7 @@ Route::get('/update-user', function () {
 });
 Route::post('/esquemas/updateUser', [tablespacesController::class, 'updateUser']);
 
-/*RESPALDOS */
+//----------------------------- RESPALDOS -----------------------------
 Route::get('/backup-user', function () {
     return view('respaldos/usuario',['data4'=>tablespacesController::schemas()]);
 });
@@ -82,6 +82,20 @@ Route::get('/delete-userbackup', function () {
     return view('respaldos/usuario');
 });
 Route::post('/respaldos/borrarRespaldoUsuario', [tablespacesController::class, 'borrarRespaldoUsuario']);
+
+//----------------------------- AUDITORIA -----------------------------
+Route::get('/auditoria-home', function () {
+    return view('auditoria/index');
+});
+Route::get('/auditoria/auditoriaConexiones', [tablespacesController::class, 'auditoriaConexiones']);
+
+
+
+
+
+
+
+
 
 //-----------------------------BACKUPS SCHEMA-----------------------------
 

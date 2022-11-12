@@ -49,6 +49,7 @@
             <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
               <li><a class="dropdown-item" href="#">Ejecución</a></li>
               <li><a class="dropdown-item" href="#">Estadística</a></li>
+              <li><a class="dropdown-item" href="http://localhost/vscode21c/dbalocal/public/auditoria-home">Auditoria</a></li>
             </ul>
             </li>
           <li class="nav-item dropdown">
