@@ -51,12 +51,16 @@ Route::get('/update-tablespace', function () {
 Route::post('/tablespace/resizeTablespace', [tablespacesController::class, 'resizeTablespace']);
 
 Route::get('/delete-tablespace', function () {
-    return view('tablespace/delete',['data'=>tablespacesController::tablespaces()])->http_response_code(200);
+    return view('tablespace/delete',['data'=>tablespacesController::tablespaces()]);
 });
 
 Route::post('/tablespace/deleteTablespace', [tablespacesController::class, 'deleteTablespace']);
 
 
+Route::get('/update-temporal', function () {
+    return view('temporal/update',['data'=>tablespacesController::tablespaces()]);
+});
+Route::post('temporal/resizeTemporaryTablespace', [tablespacesController::class, 'resizeTemporaryTablespace']);
 
 
 
@@ -85,8 +89,7 @@ Route::post('/tablespace/deleteTablespace', [tablespacesController::class, 'dele
 
 //-------------------------TABLESPACES-------------------------------------
 
-//resize a tablespace
-Route::get('/resize/{tablespace}/{size}', [tablespacesController::class, 'resizeTablespace']);
+;
 //resize a temporal tablespace
 Route::get('/resize-temp/{tablespace}/{size}', [tablespacesController::class, 'resizeTemporaryTablespace']);
 //create a tablespace

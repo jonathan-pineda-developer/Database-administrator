@@ -4,18 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <title>Tablespace-create</title>
+    <title>Create-tablespace</title>
 </head>
 <body>
+<!--
+    Formulario de crear tablespace mediante get method
+    <form action="{{ url('tablespace/createtable') }}" method="POST" class="was-validated">
+        @csrf
+        <div class="mb-3 mt-3">
+            <label for ="nombre">Nombre del tablespace: </label>
+            <input type="text" name="uname" id="uname" class="form-control" require>
+            <div class="valid-feedback">Valid.</div>
+             <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+        <div class="mb-3 mt-3">
+      <label for="uname" class="form-label">Tablespace:</label>
+      <input type="text" class="form-control" id="uname" placeholder="Nombre del tablespace" name="uname" required>
+      <div class="valid-feedback">Formato correcto</div>
+      <div class="invalid-feedback">Este espacio es requerido.</div>
+    </div>
+                <br>
+                <div class="col-12">
+                  <button class="btn btn-primary" type="submit">Crear</button>
+                </div>
+    </form>
+--->
+<!--end breadcrumb-->
 <br>
 <br>
 <div class="row">
 	<div class="col-xl-7 mx-auto">
-		<h6 class="mb-0 text-uppercase">Administración de tablespaces - Temporary</h6>
+		<h6 class="mb-0 text-uppercase">Administración de tablespaces - temporal - Crear</h6>
 		<hr>
 		<div class="card border-top border-0 border-4 border-danger">
 			<div class="card-body p-5">
@@ -28,20 +53,21 @@
 				<form class="row g-3 was-validated"form action="{{ url('temporal/createTemporaryTablespace') }}" method="POST">
         @csrf
 					<div class="col-md-6">
-						<label for="uname" class="form-label">Nombre del tablespace</label>
+						<label for="uname" class="form-label">Nombre del temporal tablespace</label>
 						<div class="input-group"> <span class="input-group-text bg-transparent"><i class="bx bxs-user"></i></span>
-							<input type="text" class="form-control border-start-0" id="uname" placeholder="Nombre del tablespace" name="uname" required>
-              <div class="valid-feedback">Nombre ingresado</div>
-              <div class="invalid-feedback">Este espacio es requerido.</div>
+							<input type="text" class="form-control " id="uname" placeholder="Nombre del tablespace" name="uname" required>
+              <div class="valid-feedback">Formato válido</div>
+              <div class="invalid-feedback">El nombre es requerido</div>
 						</div>
 					</div>
           <div class="col-md-6">
 						<label for="uname" class="form-label">Tamaño del tablespace</label>
 						<div class="input-group"> <span class="input-group-text bg-transparent"><i class="bx bxs-user"></i></span>
-            <input class="form-control" type="text" placeholder="50 Mega Bytes" aria-label="Disabled input example" disabled>
+            <input class="form-control" type="text" placeholder="25MB Auto-Extend" aria-label="Disabled input example" disabled>
 						</div>
 					</div>
-         
+          <br>
+          <br>
 					<div class="col-12">
 						<button type="submit" class="btn btn-danger px-5">Crear</button>
 					</div>
@@ -52,6 +78,14 @@
 <!--end row-->
 </div>
 <!--end row-->
+  
+<!---en una etiqueta Mostrar el response de laravel la creación del tablespace--->
+
+
+
+
+
+
 </body>
 </html>
 

@@ -132,36 +132,21 @@ class tablespacesController extends Controller
 
         return response(['route' => 'Resize exitoso'], 200);
     }*/
-    public function resizeTemporaryTablespace($tablespace,$size)
-    {
-        DB::statement('alter session set "_oracle_script"=true');   
 
-
-        DB::statement("ALTER DATABASE TEMPFILE  '" . 'C:\\app\\50683\\product\\21c\\oradata\\XE\vscode\\tablespaces\\' . $tablespace . ".DBF' RESIZE " . $size . "M");
-
-        return response(['message' => 'Resize exitoso'], 201);
-    }
- /* METODO POST PARA CAMBIAR EL TAMAÑO DE UN TEMPORARY TABLESPACE
+  //METODO POST PARA CAMBIAR EL TAMAÑO DE UN TEMPORARY TABLESPACE
     public function resizeTemporaryTablespace(Request $request)
     {
-        $fields = $request->validate([
-            "tablespace" => "required",
-            "size" => "required",
-        ]);
+        $fields = $request->input('dee');
+        $size = $request->input('size');;
 
+        //DB::statement("ALTER DATABASE DATAFILE '$resultado' resize " . $fields['size'] . "M");
+       // return response(['route' => 'Resize exitoso'], 200);
         DB::statement('alter session set "_oracle_script"=true');
 
-        $resultado = DB::table("v\$tempfile")
-            ->select("NAME")
-            ->where("NAME", "LIKE", "%" . $fields['tablespace'] . "%")
-            ->get();
+        DB::statement("ALTER DATABASE TEMPFILE '" . public_path() ."\\tablespaces\\" . $fields . ".DBF' RESIZE " . $size . "M");
 
-        $resultado = $resultado[0]->name;
-
-        DB::statement("ALTER DATABASE DATAFILE '$resultado' resize " . $fields['size'] . "M");
-
-        return response(['route' => 'Resize exitoso'], 200);
-    }*/
+        return response(['message' => 'Tablespace redimensionado con éxito'], 201);
+    }
     //cambiar de tamaño a un tablespace
     /*public function resizeTablespace($tablespace, $size)
     {

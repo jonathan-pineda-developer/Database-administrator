@@ -34,12 +34,12 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class=" nav-link disabled" href="#">Temporales</a></li>
+              <li><a class=" nav-link disabled" href="#" value="">Temporales</a></li>
             
               <li><a class="dropdown-item" href="http://localhost/vscode21c/dbalocal/public/create-temporary">Crear</a></li>
-              <li><a class="dropdown-item" href="#">Mostrar</a></li>
-              <li><a class="dropdown-item" href="#">Editar</a></li>
-              <li><a class="dropdown-item" href="#">Eliminar</a></li>
+              <li><a class="dropdown-item disabled" href="#" >Mostrar</a></li>
+              <li><a class="dropdown-item" href="http://localhost/vscode21c/dbalocal/public/update-temporal">Editar</a></li>
+              <li><a class="dropdown-item disabled" href="#">Eliminar</a></li>
             </ul>
             </li>
           <li class="nav-item dropdown">
