@@ -51,7 +51,7 @@ Route::get('/update-tablespace', function () {
 Route::post('/tablespace/resizeTablespace', [tablespacesController::class, 'resizeTablespace']);
 
 Route::get('/delete-tablespace', function () {
-    return view('tablespace/delete',['data'=>tablespacesController::tablespaces()]);
+    return view('tablespace/delete',['data'=>tablespacesController::tablespaces()])->http_response_code(200);
 });
 
 Route::post('/tablespace/deleteTablespace', [tablespacesController::class, 'deleteTablespace']);

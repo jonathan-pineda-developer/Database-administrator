@@ -9,10 +9,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <title>Tablespace-create</title>
-	<style>
-
-url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='#{$form-feedback-icon-invalid-color}'><circle cx='6' cy='6' r='4.5'/><path stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/><circle cx='6' cy='8.2' r='.6' fill='#{$form-feedback-icon-invalid-color}' stroke='none'/></svg>");
-	</style>
 </head>
 <body>
 <!--end breadcrumb-->
@@ -62,7 +58,7 @@ url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 
 					<br>
 					<br>
 					<div class="col-12">
-					<button type="submit" class="btn btn-danger px-5 form-feedback-icon-invalid">Eliminar</button>
+					<button type="submit" class="btn btn-danger px-5">Eliminar</button>
 					</div>
 				</form>
 			</div>
