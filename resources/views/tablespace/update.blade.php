@@ -37,7 +37,7 @@
 					</div>--->
 					<label for="uname" class="form-label">Seleccione un tablespace</label>
 					 <select class="form-select" aria-label="Default select example" id = "dee" name = "dee" required>
-							<option  selected></option>
+							<option  selected value="">Seleccione un tablespace</option>
 							   @foreach($data as $table)
            							 <option  value="{{ $table->tablespace_name }}">{{ $table->tablespace_name }}</option>
         						@endforeach
