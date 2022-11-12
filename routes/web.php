@@ -25,49 +25,52 @@ use App\Http\Requests;
 Route::get('/home', function () {
     return view('welcome');
 });
-//un ruta para un el formulario de crear tablespace por get
+
+/* TABLESPACES - TEMPORARY */
 Route::get('/create-table', function () {
     return view('tablespace/create');
 });
-Route::post('/tablespace/createtable', [tablespacesController::class, 'createtable']);
-
 Route::get('/list-tablespaces', [tablespacesController::class, 'tablespaces']);
-
-
+Route::post('/tablespace/createtable', [tablespacesController::class, 'createtable']);
 Route::get('/show-tablespace',function () {
     return view('tablespace/show',['data'=>tablespacesController::tablespaces()]);
 });
-
 Route::get('/create-temporary', function () {
     return view('temporal/create');
 });
 Route::post('/temporal/createTemporaryTablespace', [tablespacesController::class, 'createTemporaryTablespace']);
-
-
 Route::get('/update-tablespace', function () {
     return view('tablespace/update',['data'=>tablespacesController::tablespaces()]);
 });
-
 Route::post('/tablespace/resizeTablespace', [tablespacesController::class, 'resizeTablespace']);
-
 Route::get('/delete-tablespace', function () {
     return view('tablespace/delete',['data'=>tablespacesController::tablespaces()]);
 });
-
 Route::post('/tablespace/deleteTablespace', [tablespacesController::class, 'deleteTablespace']);
-
-
 Route::get('/update-temporal', function () {
     return view('temporal/update',['data'=>tablespacesController::tablespaces()]);
 });
 Route::post('temporal/resizeTemporaryTablespace', [tablespacesController::class, 'resizeTemporaryTablespace']);
 
+/* SCHEMAS O USUARIOS */
+Route::get('/show-schema', function () {
+    return view('esquemas/show',['data2'=>tablespacesController::schemas()]);
+});
 
+Route::get('/create-user', function () {
+    return view('esquemas/create');
+});
 
+Route::post('/esquemas/createUser', [tablespacesController::class, 'createUser']);
 
-
-
-
+Route::get('/delete-user', function () {
+    return view('esquemas/delete',['data3'=>tablespacesController::schemas()]);
+});
+Route::post('/esquemas/deleteUser', [tablespacesController::class, 'deleteUser']);
+Route::get('/update-user', function () {
+    return view('esquemas/update');
+});
+Route::post('/esquemas/updateUser', [tablespacesController::class, 'updateUser']);
 
 
 
@@ -87,19 +90,8 @@ Route::post('temporal/resizeTemporaryTablespace', [tablespacesController::class,
 //Route::delete('tablespaces/delete/{tablespace}', [tablespacesController::class, 'deleteTablespace']);
 //Route::get('tablespaces/list', [tablespacesController::class, 'tablespaces']);
 
-//-------------------------TABLESPACES-------------------------------------
-
-;
-//resize a temporal tablespace
-Route::get('/resize-temp/{tablespace}/{size}', [tablespacesController::class, 'resizeTemporaryTablespace']);
-//create a tablespace
-Route::get('/create/{tablespace}', [tablespacesController::class, 'createTablespace']);
-//create a temporary tablespace
-Route::get('/create-temp/{tablespace}', [tablespacesController::class, 'createTemporaryTablespace']);
 //-----------------------------BACKUPS SCHEMA-----------------------------
-//list schemas
-Route::get('/list-schemas', [tablespacesController::class, 'schemas']);
-//create a schema backup
+
 Route::get('/schema-backup/{schema}', [tablespacesController::class, 'createSchemaBackUp']);
 //delete .log and .dmp files
 Route::get('/delete-backup/{schema}', [tablespacesController::class, 'deleteSchemaBackUp']);

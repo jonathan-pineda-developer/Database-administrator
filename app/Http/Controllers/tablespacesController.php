@@ -17,20 +17,13 @@ class tablespacesController extends Controller
         return view('tablespaces.index');
     }
 
-    public function schemas()
+    public static function schemas()
     {
-        $schemas = DB::select('select username as schema_name
+        $data2 = DB::select('select username as schema_name
         from sys.dba_users
         order by username');
-        
-        /*return DB::select(
-            'select username as schema_name
-            from sys.dba_users
-            order by username'
-        );*/
-    //REGRESA UN JSOM CON EL SELECT DE LAS BASES DE DATOS
-    return $schemas;
-    // return response ()-> json($schemas,200,[]);
+    return $data2;
+
 
     }
     public function publicPath()
@@ -304,7 +297,42 @@ class tablespacesController extends Controller
 
         return response()->json(['message' => 'Respaldo de tabla creado', 'path' => $path], 201);
     }
+    public function createUser(Request $request)
+    {
+        $fields = $request->validate([
+            "uname" => "required",
+            "password" => "required",
+        ]);
 
+        DB::statement('alter session set "_oracle_script"=true');
+
+        DB::statement("CREATE USER " . $fields['uname'] . " IDENTIFIED BY " . $fields['password']);
+
+        return response(['message' => 'Usuario creado'], 201);
+    }
+    public function deleteUser(Request $request)
+    {
+        $fields = $request->validate([
+            "uname" => "required",
+        ]);
+
+        DB::statement('alter session set "_oracle_script"=true');
+
+        DB::statement("DROP USER " . $fields['uname'] . " CASCADE");
+
+        return response(['message' => 'Usuario eliminado'], 201);
+    }
+    public function updateUser(Request $request)
+    {
+        $fields = $request->input('uname');
+        $password = $request->input('password');
+
+        DB::statement('alter session set "_oracle_script"=true');
+
+        DB::statement("ALTER USER " . $fields . " IDENTIFIED BY " . $password);
+
+        return response(['message' => 'Usuario actualizado'], 201);
+    }
 
 
 

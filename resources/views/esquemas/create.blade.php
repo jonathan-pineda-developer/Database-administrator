@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <title>Create-tablespace</title>
+    <title>Usuario</title>
 </head>
 <body>
 <!--
@@ -40,7 +40,7 @@
 <br>
 <div class="row">
 	<div class="col-xl-7 mx-auto">
-		<h6 class="mb-0 text-uppercase">Administración de Tablespaces - Tablespace - Crear</h6>
+		<h6 class="mb-0 text-uppercase">Administración de Tablespaces - Usuarios - Crear</h6>
 		<hr>
 		<div class="card border-top border-0 border-4 border-danger">
 			<div class="card-body p-5">
@@ -50,20 +50,20 @@
 					<h5 class="mb-0 text-danger">[ Oracle 21c ]</h5>
 				</div>
 				<hr>
-				<form class="row g-3 was-validated"form action="{{ url('tablespace/createtable') }}" method="POST">
+				<form class="row g-3 was-validated"form action="{{ url('esquemas/createUser') }}" method="POST">
         @csrf
 					<div class="col-md-6">
-						<label for="uname" class="form-label">Nombre del tablespace</label>
+						<label for="uname" class="form-label">Nombre del Usuario</label>
 						<div class="input-group"> <span class="input-group-text bg-transparent"><i class="bx bxs-user"></i></span>
 							<input type="text" class="form-control " id="uname" placeholder="Nombre del tablespace" name="uname" required>
-              <div class="valid-feedback">Formato Válido!</div>
-              <div class="invalid-feedback">Debe de ingresar un nombre</div>
+                               <div class="valid-feedback">Formato Válido!</div>
+                               <div class="invalid-feedback">Debe de ingresar un nombre</div>
 						</div>
 					</div>
-          <div class="col-md-6">
-						<label for="uname" class="form-label">Tamaño del tablespace</label>
+                      <div class="col-md-6">
+						<label for="uname" class="form-label">Contraseña</label>
 						<div class="input-group"> <span class="input-group-text bg-transparent"><i class="bx bxs-user"></i></span>
-            <input class="form-control" type="text" placeholder="100 Mega Bytes" aria-label="Disabled input example" disabled>
+                       <input class="form-control" name="password" id="password" type="password" placeholder=" * * * *" aria-label="Disabled input example" required>
 						</div>
 					</div>
           <br>

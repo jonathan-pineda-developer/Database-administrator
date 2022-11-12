@@ -16,14 +16,14 @@
 <br>
 <div class="row">
 	<div class="col-xl-7 mx-auto">
-		<h6 class="mb-0 text-uppercase">Administración de tablespaces - tablespace - Eliminar</h6>
+		<h6 class="mb-0 text-uppercase">Administración de Tablespaces - Tablespace - Eliminar</h6>
 		<hr>
 		<div class="card border-top border-0 border-4 border-danger">
 			<div class="card-body p-5">
 				<div class="card-title d-flex align-items-center">
 					<div><i class="bx bxs-user me-1 font-22 text-danger"></i>
 					</div>
-					<h5 class="mb-0 text-danger">Oracle 21c</h5>
+					<h5 class="mb-0 text-danger">[ Oracle 21c ]</h5>
 				</div>
 				<hr>
 				<form class="row g-3 was-validated"form action="{{ url('tablespace/deleteTablespace') }}" method="POST">
@@ -46,7 +46,7 @@
 									<option value="{{ $table->tablespace_name }}">{{ $table->tablespace_name }}</option>
 								@endforeach
 							</select>
-								<div class="valid-feedback">Valor permitido</div>
+								<div class="valid-feedback">Tablespace detectado!</div>
 								<div class="invalid-feedback">Debe seleccionar un tablespace</div>
 						</div>
 					<!--<select class="form-select" aria-label="Default select example" id = "dee" name = "dee" required>
