@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\tablespacesController;
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 
 /*
@@ -85,7 +87,7 @@ Route::post('/respaldos/borrarRespaldoUsuario', [tablespacesController::class, '
 
 //----------------------------- AUDITORIA -----------------------------
 Route::get('/auditoria-home', function () {
-    return view('auditoria/index');
+    return view('auditoria/index',['data5'=>tablespacesController::auditoriaGeneral()]);
 });
 Route::get('/auditoria/auditoriaConexiones', [tablespacesController::class, 'auditoriaConexiones']);
 

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class tablespacesController extends Controller
 {
@@ -35,13 +36,14 @@ class tablespacesController extends Controller
     public function createtable(Request $request)
     {
       $fields = $request->input('uname');
+     
+            DB::statement('alter session set "_oracle_script"=true');
+            DB::statement("CREATE TABLESPACE " . $fields . " DATAFILE '" . 'C:\\app\\50683\\product\\21c\\oradata\\XE\vscode\\tablespaces\\' . $fields . ".DBF' SIZE 100M AUTOEXTEND ON NEXT 50");
+           
 
 
-        DB::statement('alter session set "_oracle_script"=true');
-
-        DB::statement("CREATE TABLESPACE " . $fields . " DATAFILE '" . 'C:\\app\\50683\\product\\21c\\oradata\\XE\vscode\\tablespaces\\' . $fields . ".DBF' SIZE 100M AUTOEXTEND ON NEXT 50");
-
-        return response(['message' => 'Tablespace creado con éxito'], 201);
+      
+        return response(['Oracle dice' => 'Tablespace creado con éxito'], 201);
     }
  
  // PARA POST METHOD CREAR TABLESPACE TEMPORAL
@@ -302,6 +304,19 @@ class tablespacesController extends Controller
         DB::statement('alter session set "_oracle_script"=true');
         DB::statement('Audit connect');
         return response(['message' => 'Auditoria de conexiones activada'], 201);
+    }
+
+    public static function auditoriaGeneral()
+    {
+        DB::statement('alter session set "_oracle_script"=true');
+       
+        $data = DB::select('Select username as username, action_name as action_name,
+         priv_used as priv_used, returncode as returncode from
+        dba_audit_trail
+        ');
+        return $data;
+
+
     }
 
 
