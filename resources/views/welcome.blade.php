@@ -44,13 +44,22 @@ li.dropdown {
 #dropdown:hover #dropdown-content {
   display: block;
 }
+
+.container {
+  position: relative;
+}
+img { 
+  width: 100%;
+  height: auto;
+  opacity: 0.9;
+}
 </style>
 
 </head>
 <body>
 <nav class="navbar navbar-light bg-light fixed-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Oracle LocalDB</a>
+    <a class="navbar-brand" href="#">Oracle DBA</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -87,7 +96,14 @@ li.dropdown {
               Consultas
             </a>
             <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
-              <li><a class="dropdown-item" href="#">Ejecución</a></li>
+            <li class="dropdown-item" id ="dropdown">
+                 <a href="#" class="dropbtn" id="dropbtn">Ejecución</a>
+                  <div class="dropdown-content" id = "dropdown-content">
+                    <a href="#">General</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                  </div>
+              </li>
               <li><a class="dropdown-item" href="#">Estadística</a></li>
               <li class="dropdown-item" id ="dropdown">
                  <a href="http://localhost/vscode21c/dbalocal/public/auditoria-home" class="dropbtn" id="dropbtn">Auditoria</a>
@@ -145,6 +161,9 @@ li.dropdown {
     </div>
   </div>
 </nav>
+  <div class="container">
+  <img src="{!! asset('imagenes/Oracle-Logo.png') !!}" alt="Logo de oracle"  class="img-fluid">
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
