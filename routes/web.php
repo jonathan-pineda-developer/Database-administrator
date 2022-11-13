@@ -96,6 +96,17 @@ Route::get('/auditoria-general', function () {
 
 
 
+//----------------------------- PLANES DE EJECUCION -----------------------------
+Route::get('/performace-general', function () {
+    return view('ejecucion/general',['data6'=>tablespacesController::ejecucionGeneral()]);
+});
+Route::get('/ejecucion-general', [tablespacesController::class, 'ejecucionGeneral']);
+
+
+Route::get('/monitorio-instancia', function () {
+    return view('ejecucion/instancia',['data7'=>tablespacesController::estado()]);
+});
+
 
 
 

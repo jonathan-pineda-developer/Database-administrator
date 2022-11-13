@@ -99,8 +99,8 @@ img {
             <li class="dropdown-item" id ="dropdown">
                  <a href="#" class="dropbtn" id="dropbtn">Ejecución</a>
                   <div class="dropdown-content" id = "dropdown-content">
-                    <a href="#">General</a>
-                    <a href="#">Link 2</a>
+                    <a href="http://localhost/vscode21c/dbalocal/public/performace-general">General</a>
+                    <a href="http://localhost/vscode21c/dbalocal/public/monitorio-instancia">Monitoreo de instancia</a>
                     <a href="#">Link 3</a>
                   </div>
               </li>
@@ -161,9 +161,15 @@ img {
     </div>
   </div>
 </nav>
+<br>
+<br>
+<br>
   <div class="container">
+  <h1 class="center" style="top: 50%; width: 100%; text-align: center;">SISTEMA DE ADMINISTRACIÓN DE DATOS</h1>
   <img src="{!! asset('imagenes/Oracle-Logo.png') !!}" alt="Logo de oracle"  class="img-fluid">
+
 </div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -234,19 +234,6 @@ class tablespacesController extends Controller
 
     // crear un respaldo de una tabla de un esquema
 
-
-    /*public function createTableOfSchemaBackUp($schema, $table)
-    {
-        DB::statement('alter session set "_oracle_script"=true');
-
-        DB::statement("CREATE OR REPLACE DIRECTORY RESPALDO AS 'C:\\app\\50683\\product\\21c\\oradata\\XE\\vscode\\tablespaces\\'");
-
-        $cmd = "EXPDP NEUSER/VSCODE21C@XE TABLES=" . $schema . "." . $table . " DIRECTORY=RESPALDO DUMPFILE=" . $schema . $table . ".DMP LOGFILE=" . $schema . $table . ".LOG";
-
-        shell_exec($cmd);
-
-        return response()->json(['message' => 'Respaldo de la tabla ' . $table . ' del schema ' . $schema . ' creado correctamente'], 200);
-    }*/
     public function createTableBackUp($schema, $table)
     {
         DB::statement('alter session set "_oracle_script"=true');
@@ -318,7 +305,20 @@ class tablespacesController extends Controller
 
 
     }
-
-
+    public static function ejecucionGeneral()
+    {
+        DB::statement('alter session set "_oracle_script"=true');
+        /*return  DB::select('select SUBSTR (LPAD(\'\', LEVEL-1) || OPERATION || \' (\'|| OPTIONS || \')\',1,30 ) as "OPERACION",
+             OBJECT_NAME as "OBJETO" FROM  PLAN_TABLE START WITH ID = 0 CONNECT BY PRIOR ID=PARENT_ID
+        '); */
+       $data = DB::select ('select operation as operation, object_name as object_name from plan_table');
+        return $data;
+    }
+    public static function estado()
+    {
+        DB::statement('alter session set "_oracle_script"=true');
+        $data = DB::select('select status as status, instance_name as instance_name from v$instance');  
+        return $data; 
+    }
 
 }
