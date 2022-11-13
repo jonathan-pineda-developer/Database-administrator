@@ -310,9 +310,9 @@ class tablespacesController extends Controller
     {
         DB::statement('alter session set "_oracle_script"=true');
        
-        $data = DB::select('Select username as username, action_name as action_name,
+        $data = DB::select('Select distinct userhost as userhost, username as username, action_name as action_name,
          priv_used as priv_used, returncode as returncode from
-        dba_audit_trail
+        dba_audit_trail order by username
         ');
         return $data;
 

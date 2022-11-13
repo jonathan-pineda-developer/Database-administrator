@@ -23,7 +23,7 @@
 					<h5 class="mb-0 text-danger">[ Oracle 21c ]</h5>
                      </div>
                         <div class="container mt-3">
-                        <h2>Auditoria Oracle</h2>
+                        <h2>Activar auditorias</h2>
                         <div class="card">
                             <div class="card-header">
 
@@ -40,7 +40,7 @@
                                         </div>
                                     <div class = "col">
                                             <div class="container mt-3">
-                                                <a href="#" class="btn btn-primary">Conexion</a>
+                                                <a href="#" class="btn btn-primary">Usuarios</a>
                                             </div>
                                         </div>
                                 </div>
@@ -60,37 +60,6 @@
                                 Footer
                             </div>
                         </div>
-                        <div class="container mt-3">
-                        <h2>Auditoria General del sistema </h2>
-                        <div class="card">
-                            <div class="card-body">  
-                                    <div class="row">
-                        <table class="table table-hover table-secondary table-bordered">
-                            <thead> 
-                            <tr>
-                                <th value="">NOMBRE</th>
-                                <th value="">ACCIÓN</th>
-                                <th value="">PRIVILEGIO</th>
-                                <th value="">CÓDIGO</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($data5 as $table)
-                            <tr>
-                                <th scope="row" class="text-lowercase" value="{{$table->username}}">{{ $table->username }}</th>
-                                <th scope="row" class="text-lowercase" value="{{$table->action_name}}">{{ $table->action_name}}</th>
-                                <th scope="row" class="text-lowercase" value="{{$table->priv_used }}">{{ $table->priv_used }}</th>
-                                <th scope="row" class="text-lowercase" value="{{$table->returncode}}">{{ $table->returncode }}</th>
-                            </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                                    </div>
-                                </div> 
-                        </div>
-                        </div>
-
-
                     </div>
                 </div>
         </div>

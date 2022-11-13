@@ -6,6 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Bienvenido</title>
+    <style>
+
+li a, #dropbtn {
+  display: inline-block;
+ color: #212529;
+/* text-align: center;*/
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+
+
+li.dropdown {
+  display: inline-block;
+}
+
+#dropdown-content {
+  display: none;
+  position: absolute;
+ background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+#dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+#dropdown-content a:hover {background-color: #f1f1f1;}
+
+#dropdown:hover #dropdown-content {
+  display: block;
+}
+</style>
+
 </head>
 <body>
 <nav class="navbar navbar-light bg-light fixed-top">
@@ -49,7 +89,17 @@
             <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
               <li><a class="dropdown-item" href="#">Ejecución</a></li>
               <li><a class="dropdown-item" href="#">Estadística</a></li>
-              <li><a class="dropdown-item" href="http://localhost/vscode21c/dbalocal/public/auditoria-home">Auditoria</a></li>
+              <li class="dropdown-item" id ="dropdown">
+                 <a href="http://localhost/vscode21c/dbalocal/public/auditoria-home" class="dropbtn" id="dropbtn">Auditoria</a>
+                  <div class="dropdown-content" id = "dropdown-content">
+                    <a href="http://localhost/vscode21c/dbalocal/public/auditoria-general">General</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                  </div>
+              </li>
+             
+              <li><a class="dropdown-item" href="#">Otros</a></li>
+              
             </ul>
             </li>
           <li class="nav-item dropdown">
@@ -70,7 +120,7 @@
             <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
               <li><a class="dropdown-item" href="#">Sistema oracle</a></li>
               <li><a class="dropdown-item" href="http://localhost/vscode21c/dbalocal/public/backup-user">Usuario</a></li>
-              <li><a class="dropdown-item" href="#">Tablespace</a></li>
+              <li><a class="dropdown-item" id = "dropdown" href="#">Tablespace</a></li>
             </ul>
             </li>
           <li class="nav-item dropdown">
@@ -95,7 +145,6 @@
     </div>
   </div>
 </nav>
-@include('sweetalert::alert')
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

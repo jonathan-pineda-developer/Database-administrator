@@ -90,6 +90,9 @@ Route::get('/auditoria-home', function () {
     return view('auditoria/index',['data5'=>tablespacesController::auditoriaGeneral()]);
 });
 Route::get('/auditoria/auditoriaConexiones', [tablespacesController::class, 'auditoriaConexiones']);
+Route::get('/auditoria-general', function () {
+    return view('auditoria/general',['data5'=>tablespacesController::auditoriaGeneral()]);
+});
 
 
 
