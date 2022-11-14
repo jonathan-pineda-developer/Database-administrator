@@ -22,6 +22,11 @@
                                 </div>
 					                <h5 class="mb-0 text-danger">[ Oracle 21c ]</h5>
                             </div>
+                            <hr>
+                            <div class="d-grid gap-2 d-md-block">
+					                <a href="{{ url('/home') }}" class="btn btn-danger px-5">Volver</a>
+					                </div>
+                                    <hr>
                                   <div class="container mt-3">
                                         <h2>Instancia del sistema </h2>
                                             <div class="card">

@@ -12,7 +12,8 @@
 </head>
 <body>
 @include('sweetalert::alert')
-<h1>Tables</h1>
+<br>
+<br>
 
 <!--crear respaldo de una tabla de un schema-->
 
@@ -63,10 +64,11 @@
                             
                         </div>
 
-
-
-                        <button type="submit" class="btn btn-primary">Motrar</button>
-
+<br>
+                        <div class="d-grid gap-2 d-md-block">
+                    <button type="submit" class="btn btn-danger px-5">Auditar</button>
+					<a href="{{ url('/home') }}" class="btn btn-danger px-5">Volver</a>
+					</div>
                     </form>
 
                 </div>

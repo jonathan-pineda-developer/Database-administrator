@@ -68,8 +68,9 @@
 					</div>
           <br>
           <br>
-					<div class="col-12">
-						<button type="submit" class="btn btn-danger px-5">Crear</button>
+          <div class="d-grid gap-2 d-md-block">
+          <button type="submit" class="btn btn-danger px-5">Crear</button>
+					<a href="{{ url('/home') }}" class="btn btn-danger px-5">Volver</a>
 					</div>
 				</form>
 			</div>

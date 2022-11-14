@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Bienvenido</title>
     <style>
-
+ /* ESTILOS PARA LA FUNCION HOVER DEL MENÚ */
 li a, #dropbtn {
   display: inline-block;
  color: #212529;
@@ -125,7 +125,7 @@ img {
             <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
               <li><a class="dropdown-item" href="http://localhost/vscode21c/dbalocal/public/create-user">Crear</a></li>
               <li><a class="dropdown-item" href="http://localhost/vscode21c/dbalocal/public/show-schema">Mostrar</a></li>
-              <li><a class="dropdown-item disabled" href="http://localhost/vscode21c/dbalocal/public/update-user">Actualizar</a></li>
+              <li><a class="dropdown-item" href="http://localhost/vscode21c/dbalocal/public/update-user">Actualizar</a></li>
               <li><a class="dropdown-item" href="http://localhost/vscode21c/dbalocal/public/delete-user">Eliminar</a></li>
             </ul>
             </li>
@@ -153,14 +153,14 @@ img {
                     <a href="http://localhost/vscode21c/dbalocal/public/listar-permisos">Ver privilegios del sistema</a>
                   </div>
               </li>
-              <li>
+              <!--<li>
                 <hr class="dropdown-divider">
               </li>
               <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
           </li>
         </ul>
-      <!--  <form class="d-flex">
+        <form class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Buscar</button>--->
         </form>

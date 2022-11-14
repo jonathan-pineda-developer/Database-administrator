@@ -59,10 +59,12 @@
                             <input type="text-uppercase" class="form-control text-uppercase"  id="tables" name="tables" placeholder="Ingrese el nombre de la tabla">
                             
                         </div>
+    <br>
 
-
-
+                        <div class="d-grid gap-2 d-md-block">
                         <button type="submit" class="btn btn-primary">Motrar</button>
+					                <a href="{{ url('/home') }}" class="btn btn-danger px-5">Volver</a>
+					                </div>
 
                     </form>
 

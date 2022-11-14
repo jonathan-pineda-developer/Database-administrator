@@ -43,10 +43,17 @@
                                                 <a href="#" class="btn btn-primary">Usuarios</a>
                                             </div>
                                         </div>
+                                        <div class = "col">
+                                            <div class="container mt-3">
+                                            <a href="{{ url('/home') }}" class="btn btn-danger px-5">Volver</a>
+                                            </div>
+                                        </div>
                                 </div>
                             </div>
 
-                            <div class="card-body">  </div>
+                            <div class="card-body">  
+                    
+                            </div>
                     
                             <div class="card-footer">
                                 

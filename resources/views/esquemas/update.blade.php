@@ -25,7 +25,7 @@
 					<h5 class="mb-0 text-danger">[ Oracle 21c ]</h5>
 				</div>
 				<hr>
-				<form class="row g-3 was-validated"form action="{{ url('esquemas/deleteUser') }}" method="POST">
+				<form class="row g-3 was-validated"form action="{{ url('esquemas/updateUser') }}" method="POST">
        				 @csrf
 					<!--<div class="col-md-6">
 						<label for="uname" class="form-label">Nombre del tablespace</label>
@@ -52,8 +52,9 @@
 						</div>
 					</div>
          
-					<div class="col-12">
-						<button type="submit" class="btn btn-danger px-5">Actualizar</button>
+					<div class="d-grid gap-2 d-md-block">
+					<button type="submit" class="btn btn-danger px-5">Actualizar</button>
+					<a href="{{ url('/home') }}" class="btn btn-danger px-5">Volver</a>
 					</div>
 				</form>
 			</div>
