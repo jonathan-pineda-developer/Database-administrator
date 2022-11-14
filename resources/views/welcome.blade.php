@@ -139,14 +139,20 @@ img {
               <li><a class="dropdown-item" id = "dropdown" href="#">Tablespace</a></li>
             </ul>
             </li>
-            <!--
+            
           <li class="nav-item dropdown">
             <a class="nav-link dropdown" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-             Indices
+             Permisos
             </a>
             <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li class="dropdown-item" id ="dropdown">
+                 <a href="http://localhost/vscode21c/dbalocal/public/auditoria-home" class="dropbtn" id="dropbtn">Usuario</a>
+                  <div class="dropdown-content" id = "dropdown-content">
+                    <a href="http://localhost/vscode21c/dbalocal/public/permisos-usuario">Asignar rol</a>
+                    <a href="#">Esquemas</a>
+                    <a href="#">Tablas</a>
+                  </div>
+              </li>
               <li>
                 <hr class="dropdown-divider">
               </li>
@@ -154,7 +160,7 @@ img {
             </ul>
           </li>
         </ul>
-        <form class="d-flex">
+      <!--  <form class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Buscar</button>--->
         </form>

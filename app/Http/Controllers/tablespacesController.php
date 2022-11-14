@@ -163,60 +163,7 @@ class tablespacesController extends Controller
         return response(['message' => 'Tablas analizadas', 'tablas' => $tablas], 200);
        
     }
-    //listar privilegios de un usuario 
-     public function privileges()
-    {
-        return DB::table('DBA_SYS_PRIVS')
-            ->select('privilege')
-            ->distinct()
-            ->get();
-    }
-    //listar roles de un usuario
-    public function roles()
-    {
-        return DB::table('DBA_ROLES')
-            ->select('role')
-            ->get();
-    }
-    //asignar un role a un usuario
-   /*   METODO POST PARA ASIGNAR UN ROLE A UN USUARIO
-    public function assignRole(Request $request)
-    {
-        $fields = $request->validate([
-            "user" => "required",
-            "role" => "required",
-        ]);
 
-        DB::statement('alter session set "_oracle_script"=true');
-
-        DB::statement("GRANT " . $fields['role'] . " TO " . $fields['user']);
-
-        return response(['message' => 'Rol asignado'], 201);
-    }*/
-    //Asignar un role a un usuario por metodo get
-    public function assignRole($user, $role)
-    {
-        DB::statement('alter session set "_oracle_script"=true');
-
-        DB::statement("GRANT " . $role . " TO " . $user);
-        
-        return response(['message' => 'Rol asignado'], 201);
-    }
-    //listar los usuarios del sistema
-    public function users()
-    {
-        return DB::table('DBA_USERS')
-            ->select('username')
-            ->get();
-    }
-    //listar los privilegios de un usuario
-    public function privilegesOfAUser($user)
-    {
-        return DB::table('DBA_SYS_PRIVS')
-            ->select('privilege')
-            ->where('grantee', $user)
-            ->get();
-    }
     
 
     public function createSchemaBackUp(Request $request)
@@ -253,22 +200,6 @@ class tablespacesController extends Controller
     
     }
 
-    // crear un respaldo de una tabla de un esquema
-
-    public function createTableBackUp($schema, $table)
-    {
-        DB::statement('alter session set "_oracle_script"=true');
-
-        DB::statement("CREATE OR REPLACE DIRECTORY RESPALDO AS " . "'" . public_path() . "\\respaldos'");
-
-        $cmd = "EXPDP SYSTEM/coutJonathan97@XE TABLES=" . $schema . "." . $table . " DIRECTORY=RESPALDO DUMPFILE=" . $table . ".DMP LOGFILE=" . $table . ".LOG";
-
-        shell_exec($cmd);
-
-        $path = 'respaldos/' . $table . '.DMP';
-
-        return response()->json(['message' => 'Respaldo de tabla creado', 'path' => $path], 201);
-    }
 
     public function createDatabaseBackUp(Request $request)
     {
@@ -305,15 +236,6 @@ class tablespacesController extends Controller
             }
     }
    
-
-
-
-
-
-
-
-
-
     public function createUser(Request $request)
     {
         $fields = $request->validate([
@@ -350,15 +272,7 @@ class tablespacesController extends Controller
 
         return response(['message' => 'Usuario actualizado'], 201);
     }
-    //AUDITORIA
-
-    public function auditoriaConexiones()
-    {
-        DB::statement('alter session set "_oracle_script"=true');
-        DB::statement('Audit connect');
-        return response(['message' => 'Auditoria de conexiones activada'], 201);
-    }
-
+    
     public static function auditoriaGeneral()
     {
         DB::statement('alter session set "_oracle_script"=true');
@@ -425,6 +339,84 @@ class tablespacesController extends Controller
         order by username');
         return $data;
     }
+    //-----------------------------------------------------------------------
+    public function auditoriaConexiones()
+    {
+        DB::statement('alter session set "_oracle_script"=true');
+        DB::statement('Audit connect');
+        return response(['message' => 'Auditoria de conexiones activada'], 201);
+    }
+        // crear un respaldo de una tabla de un esquema
+
+        public function createTableBackUp($schema, $table)
+        {
+            DB::statement('alter session set "_oracle_script"=true');
+    
+            DB::statement("CREATE OR REPLACE DIRECTORY RESPALDO AS " . "'" . public_path() . "\\respaldos'");
+    
+            $cmd = "EXPDP SYSTEM/coutJonathan97@XE TABLES=" . $schema . "." . $table . " DIRECTORY=RESPALDO DUMPFILE=" . $table . ".DMP LOGFILE=" . $table . ".LOG";
+    
+            shell_exec($cmd);
+    
+            $path = 'respaldos/' . $table . '.DMP';
+    
+            return response()->json(['message' => 'Respaldo de tabla creado', 'path' => $path], 201);
+        }
+            //listar privilegios de un usuario 
+     public static function privileges()
+     {
+         return DB::table('DBA_SYS_PRIVS')
+             ->select('privilege')
+             ->distinct()
+             ->get();
+     }
+     //listar roles de un usuario
+     public static function roles()
+     {
+         return $data = DB::table('DBA_ROLES')
+             ->select('role')
+             ->get();
+     }
+     //asignar un role a un usuario
+    //  METODO POST PARA ASIGNAR UN ROLE A UN USUARIO
+     public function assignRole(Request $request)
+     {
+         $fields = $request->validate([
+             "user" => "required",
+             "role" => "required",
+         ]);
+ 
+         DB::statement('alter session set "_oracle_script"=true');
+ 
+         $data = DB::statement("GRANT " . $fields['role'] . " TO " . $fields['user']);
+         
+         Alert::success('Asignacion de role', 'Role asignado correctamente a'. $fields['user']);
+         return redirect()->back();
+     }
+     //Asignar un role a un usuario por metodo get
+    /* public function assignRole($user, $role)
+     {
+         DB::statement('alter session set "_oracle_script"=true');
+ 
+         DB::statement("GRANT " . $role . " TO " . $user);
+         
+         return response(['message' => 'Rol asignado'], 201);
+     }*/
+     //listar los usuarios del sistema
+     public static function users()
+     {
+         return $data = DB::table('DBA_USERS')
+             ->select('username')
+             ->get();
+     }
+     //listar los privilegios de un usuario
+     public function privilegesOfAUser($user)
+     {
+         return DB::table('DBA_SYS_PRIVS')
+             ->select('privilege')
+             ->where('grantee', $user)
+             ->get();
+     }
 
 
 

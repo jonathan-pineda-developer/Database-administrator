@@ -75,6 +75,11 @@ Route::get('/update-user', function () {
 });
 Route::post('/esquemas/updateUser', [tablespacesController::class, 'updateUser']);
 
+Route::get('/permisos-usuario', function () {
+    return view('usuarios/roles',['rol'=>tablespacesController::roles()],['usuario'=>tablespacesController::users()]);
+});
+Route::post('/usuarios/assignRole', [tablespacesController::class, 'assignRole']);
+
 
 //----------------------------- RESPALDOS -----------------------------
 Route::get('/backup-user', function () {
