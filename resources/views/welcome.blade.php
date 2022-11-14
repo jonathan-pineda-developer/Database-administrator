@@ -104,7 +104,7 @@ img {
                     <a href="http://localhost/vscode21c/dbalocal/public/tunning-general">Tunning</a>
                   </div>
               </li>
-              <li><a class="dropdown-item" href="#">Estadística</a></li>
+              <li><a class="dropdown-item" href="http://localhost/vscode21c/dbalocal/public/estadistica-general">Estadística</a></li>
               <li class="dropdown-item" id ="dropdown">
                  <a href="http://localhost/vscode21c/dbalocal/public/auditoria-home" class="dropbtn" id="dropbtn">Auditoria</a>
                   <div class="dropdown-content" id = "dropdown-content">
@@ -139,6 +139,7 @@ img {
               <li><a class="dropdown-item" id = "dropdown" href="#">Tablespace</a></li>
             </ul>
             </li>
+            <!--
           <li class="nav-item dropdown">
             <a class="nav-link dropdown" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
              Indices
@@ -153,7 +154,7 @@ img {
             </ul>
           </li>
         </ul>
-     <!---   <form class="d-flex">
+        <form class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Buscar</button>--->
         </form>

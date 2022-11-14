@@ -13,7 +13,7 @@
   <div class="col-xl-7 mx-auto">
     <br>
         <br>
-		    <h6 class="mb-0 text-uppercase">Performance del sistema</h6>
+		    <h6 class="mb-0 text-uppercase">Ubicacion de archivos princiaples</h6>
 		        <hr>
 		            <div class="card border-top border-0 border-4 border-danger">
 			            <div class="card-body p-5">
@@ -23,22 +23,22 @@
 					                <h5 class="mb-0 text-danger">[ Oracle 21c ]</h5>
                             </div>
                                   <div class="container mt-3">
-                                        <h2>Performance General del sistema</h2>
+                                        <h2>Archivos de control CTL</h2>
                                             <div class="card">
                                                 <div class="card-body">  
                                                     <div class="row">
                                                         <table class="table table-hover table-bordered table-striped">
                                                             <thead> 
                                                                 <tr>
-                                                                    <th value="">HOST</th>
-                                                                    <th value="">NOMBRE</th>
+                                                                    <th value="">Ubicicación actual</th>
+                                                    
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                 @foreach($data8 as $table)
+                                                                 @foreach($data20 as $table)
                                                                  <tr>
-                                                                    <th scope="row" class="text-lowercase" value="{{$table->operation}}">{{ $table->operation}}</th>
-                                                                    <th scope="row" class="text-lowercase" value="{{$table->object_name}}">{{ $table->object_name }}</th>
+                                                                    <th scope="row" class="text-lowercase" value="{{$table->value}}">{{ $table->value}}</th>
+                                                          
                                                                 </tr>
                                                                 @endforeach
                                                             </tbody>
@@ -51,6 +51,5 @@
                     </div>
     </div>
 </div>
-<iframe src="http://localhost/vscode21c/dbalocal/public/control-files" width="100%" height="300" style="border:none;">
 </body>
 </html>

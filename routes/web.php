@@ -134,6 +134,21 @@ Route::get('/tunning-general', function () {
 });
 Route::post('/tunning/analizeTableOfSchema', [tablespacesController::class, 'analizeTableOfSchema']);
 
+
+
+//----------------------------- Estadistica -----------------------------
+
+Route::get('/estadistica-general', function () {
+    return view('estadistica/general',['data13' => tablespacesController::auditoriaSistema()],
+    ['data14' => tablespacesController::ubicacion_spfile()]);
+});
+Route::get('/ubicacion-ctl', function () {
+    return view('estadistica/ubicaciones',['data16' => tablespacesController::control()]);
+});
+Route::get('/control-files', function () {
+    return view('estadistica/archivos',['data20' => tablespacesController::ubicacion_control_files()]);
+});
+
 /*
 //------TUNNING DE CONSULTAS---------
 // analisis de las tablas de un schema

@@ -11,6 +11,7 @@
     <title>Usuario</title>
 </head>
 <body>
+@include('sweetalert::alert')
 <h1>Tables</h1>
 
 <!--crear respaldo de una tabla de un schema-->

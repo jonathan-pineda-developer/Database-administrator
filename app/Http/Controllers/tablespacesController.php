@@ -395,9 +395,37 @@ class tablespacesController extends Controller
         DB::statement('alter session set "_oracle_script"=true');
 
         DB::statement("ANALYZE TABLE " . $schema . "." . $table . " COMPUTE STATISTICS");
-
-        return response(['message' => 'Tablas re-analizadas'], 200);
+        Alert::success('Analisis de tabla', 'Tabla analizada correctamente');
+        return redirect()->back();
     }
+    //consultar auditoria del sistema
+    public static function auditoriaSistema()
+    {
+        DB::statement('alter session set "_oracle_script"=true');
+        $data = DB::select(' select value as value from v$system_parameter where name = \'compatible\' ');
+        return $data;
+    }
+    public static function ubicacion_spfile()
+    {
+        DB::statement('alter session set "_oracle_script"=true');
+        $data = DB::select(' select value as value from v$system_parameter where name = \'spfile\' ');
+        return $data;
+    }
+    public static function ubicacion_control_files()
+    {
+        DB::statement('alter session set "_oracle_script"=true');
+        $data = DB::select(' select value as value from v$system_parameter where name = \'control_files\' ');
+        return $data;
+    }
+    public static function control()
+    {
+        DB::statement('alter session set "_oracle_script"=true');
+        $data = DB::select(' select osuser as usuario, username as parametro, machine as maquina, program as programa
+        from v$session 
+        order by username');
+        return $data;
+    }
+
 
 
 }
