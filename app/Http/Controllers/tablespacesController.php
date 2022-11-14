@@ -40,13 +40,9 @@ class tablespacesController extends Controller
      
             DB::statement('alter session set "_oracle_script"=true');
             DB::statement("CREATE TABLESPACE " . $fields . " DATAFILE '" . 'C:\\app\\50683\\product\\21c\\oradata\\XE\vscode\\tablespaces\\' . $fields . ".DBF' SIZE 100M AUTOEXTEND ON NEXT 50");
-           
-            
+         Alert::success('Tablespace creado correctamente', 'Se ha agregado el tablespace ' . $fields . ' correctamente');
+          return redirect()->back();
 
-
-         // Alert::success('Tablespace creado correctamente', 'Se ha agregado el tablespace ' . $fields . ' correctamente');
-          return redirect('/show-tablespace');
-        //return response(['Oracle dice' => 'Tablespace creado con éxito'], 201);
     }
  
  // PARA POST METHOD CREAR TABLESPACE TEMPORAL
@@ -67,9 +63,6 @@ class tablespacesController extends Controller
         DB::statement('alter session set "_oracle_script"=true');
 
         DB::statement("DROP TABLESPACE " . $fields . " INCLUDING CONTENTS AND DATAFILES");
-
-       // redirect()->route('tablespace.delete')->with('message', 'Tablespace eliminado con éxito');
-
         return response(['message' => 'Tablespace eliminado con éxito'], 201);
     }
 
@@ -101,9 +94,6 @@ class tablespacesController extends Controller
     {
         $fields = $request->input('dee');
         $size = $request->input('size');;
-
-        //DB::statement("ALTER DATABASE DATAFILE '$resultado' resize " . $fields['size'] . "M");
-       // return response(['route' => 'Resize exitoso'], 200);
         DB::statement('alter session set "_oracle_script"=true');
 
         DB::statement("ALTER DATABASE TEMPFILE '" . public_path() ."\\tablespaces\\" . $fields . ".DBF' RESIZE " . $size . "M");
@@ -111,14 +101,6 @@ class tablespacesController extends Controller
         return response(['message' => 'Tablespace redimensionado con éxito'], 201);
     }
    
- 
-    // listar una tabla de una schema(schema = basedatos && tabla = clase)[muestra las columnas de la tabla] 
-    /*public static function columnOfATableOfASchema($schema, $table)
-    {
-
-        $data = DB::select("select column_name from all_tab_columns where table_name ='" . $table . "' AND OWNER ='" . $schema . "'");
-          return $data;      
-    }*/
     public function columnOfATableOfASchema(Request $request)
     {
         $schema = $request->input('schemas');
@@ -363,14 +345,14 @@ class tablespacesController extends Controller
           return redirect()->back();
       }
       //listar los usuarios del sistema
-      public static function users()
+    public static function users()
       {
           return $data = DB::table('DBA_USERS')
               ->select('username')
               ->get();
       }
               //asignar un privilegio a un usuario
-              public function assignPrivilege(Request $request)
+    public function assignPrivilege(Request $request)
               {
                   $fields = $request->validate([
                       "user" => "required",
@@ -385,20 +367,30 @@ class tablespacesController extends Controller
                   return redirect()->back();
               }
               //listar todos los roles y privilegios de todos los usuarios
-              public static function rolesPrivileges()
+    public static function rolesPrivileges()
               {
                   DB::statement('alter session set "_oracle_script"=true');
                   $data = DB::select('select grantee as usuario, privilege as privilegio from dba_sys_privs order by grantee asc');
                   return $data;
               }
-    //-----------------------------------------------------------------------
+                  // crear un respaldo de una tabla de un esquema
     public function auditoriaConexiones()
-    {
-        DB::statement('alter session set "_oracle_script"=true');
-        DB::statement('Audit connect');
-        return response(['message' => 'Auditoria de conexiones activada'], 201);
-    }
-        // crear un respaldo de una tabla de un esquema
+              {
+                  DB::statement('alter session set "_oracle_script"=true');
+                  DB::statement('Audit connect');
+                  return response(['message' => 'Auditoria de conexiones activada'], 201);
+              }
+                //listar privilegios de un usuario 
+    public static function privilegios()
+                {
+                    return $data = DB::table('DBA_SYS_PRIVS')
+                        ->select('privilege')
+                        ->distinct()
+                        ->get();
+                }
+    //-----------------------NO IMPLEMENTADOS------------------------------------------------
+
+    
 
         public function createTableBackUp($schema, $table)
         {
@@ -414,14 +406,7 @@ class tablespacesController extends Controller
     
             return response()->json(['message' => 'Respaldo de tabla creado', 'path' => $path], 201);
         }
-            //listar privilegios de un usuario 
-     public static function privilegios()
-     {
-         return $data = DB::table('DBA_SYS_PRIVS')
-             ->select('privilege')
-             ->distinct()
-             ->get();
-     }
+
    
      //listar los privilegios de un usuario
      public function privilegesOfAUser(Request $request)

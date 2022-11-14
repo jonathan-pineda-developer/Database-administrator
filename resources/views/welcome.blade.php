@@ -110,7 +110,7 @@ img {
                   <div class="dropdown-content" id = "dropdown-content">
                     <a href="http://localhost/vscode21c/dbalocal/public/auditoria-general">General</a>
                     <a href="http://localhost/vscode21c/dbalocal/public/tablas-esquema">Esquemas</a>
-                    <a href="http://localhost/vscode21c/dbalocal/public/tabla-contenido">Tablas</a>
+                    <a href="http://localhost/vscode21c/dbalocal/public/tabla-contenido" >Tablas</a>
                   </div>
               </li>
              
@@ -136,7 +136,7 @@ img {
             <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
               <li><a class="dropdown-item" href="http://localhost/vscode21c/dbalocal/public/respaldo-full">Sistema oracle</a></li>
               <li><a class="dropdown-item" href="http://localhost/vscode21c/dbalocal/public/backup-user">Usuario</a></li>
-              <li><a class="dropdown-item" id = "dropdown" href="#">Tablespace</a></li>
+             <li><a class="dropdown-item  disabled>" id = "dropdown" href="#" >Tablespace</a></li> 
             </ul>
             </li>
             

@@ -11,8 +11,6 @@
     <title>Usuario</title>
 </head>
 <body>
-<h1>Tables</h1>
-
 <!--crear respaldo de una tabla de un schema-->
 
 <div class="container">
