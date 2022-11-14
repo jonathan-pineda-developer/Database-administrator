@@ -121,7 +121,24 @@ Route::get('/monitorio-instancia', function () {
 });
 
 
+//----------------------------- TUNNING -----------------------------
+Route::get('/tunning-general', function () {
+    return view('tunning/analisis',['schemas' => tablespacesController::schemas()]);
+});
+Route::post('/tunning/analizeTableOfSchema', [tablespacesController::class, 'analizeTableOfSchema']);
 
+/*
+//------TUNNING DE CONSULTAS---------
+// analisis de las tablas de un schema
+Route::get('/analizarTablas/{schema}', [BaseController::class, 'analizarTablas']);
+// crea index en una columna de una tabla de un schema
+Route::post('/createIndex/index', [BaseController::class, 'createIndex']);
+// estadisticas de un schema
+Route::get('/estaSchema/{schema}', [BaseController::class, 'createEstadisticaSchema']);
+// analisis de una tabla de un schema
+Route::post('/analizarTabla/nombre', [BaseController::class, 'analizeTableOfSchema']);
+
+*/
 
 
 

@@ -108,39 +108,7 @@ class tablespacesController extends Controller
         return response(['message' => 'Tablespace redimensionado con éxito'], 201);
     }
    
-    public function createSchemaBackUp(Request $request)
-    {
-        $fields = $request->input('uname');
-        DB::statement('alter session set "_oracle_script"=true');
-
-        DB::statement("CREATE OR REPLACE DIRECTORY RESPALDO AS " . "'" . public_path() . "\\respaldos'");
-
-        // DB::statement('GRANT READ, WRITE ON DIRECTORY RESPALDO TO administrador_fachero');
-
-        $cmd = "EXPDP SYSTEM/coutJonathan97@XE SCHEMAS=" . $fields . " DIRECTORY=RESPALDO DUMPFILE=" . $fields . ".DMP LOGFILE=" . $fields . ".LOG";
-
-        shell_exec($cmd);
-
-       // $path = 'respaldos/' . $schema . '.DMP';
-
-        return response(['message' => 'Respaldado creado con éxito'], 201);
-        
-    }
-    public function borrarRespaldoUsuario(Request $request)
-    {
-        $schema = $request->input('uname');
-
-        $path = public_path() ."\\respaldos'". $schema . '.DMP';
-
-        File::delete($path);
-
-        $path = public_path() ."\\respaldos'". $schema . '.LOG';
-
-        File::delete($path);
-
-        return response()->json(['message' => 'Respaldo del schema ' . $schema . ' eliminado correctamente'], 200);
-    
-    }
+ 
     // listar una tabla de una schema(schema = basedatos && tabla = clase)[muestra las columnas de la tabla] 
     /*public static function columnOfATableOfASchema($schema, $table)
     {
@@ -248,6 +216,39 @@ class tablespacesController extends Controller
     }
     
 
+    public function createSchemaBackUp(Request $request)
+    {
+        $fields = $request->input('uname');
+        DB::statement('alter session set "_oracle_script"=true');
+
+        DB::statement("CREATE OR REPLACE DIRECTORY RESPALDO AS " . "'" . public_path() . "\\respaldos'");
+
+        // DB::statement('GRANT READ, WRITE ON DIRECTORY RESPALDO TO administrador_fachero');
+
+        $cmd = "EXPDP SYSTEM/coutJonathan97@XE SCHEMAS=" . $fields . " DIRECTORY=RESPALDO DUMPFILE=" . $fields . ".DMP LOGFILE=" . $fields . ".LOG";
+
+        shell_exec($cmd);
+
+       // $path = 'respaldos/' . $schema . '.DMP';
+
+        return response(['message' => 'Respaldado creado con éxito'], 201);
+        
+    }
+    public function borrarRespaldoUsuario(Request $request)
+    {
+        $schema = $request->input('uname');
+
+        $path = public_path() ."\\respaldos'". $schema . '.DMP';
+
+        File::delete($path);
+
+        $path = public_path() ."\\respaldos'". $schema . '.LOG';
+
+        File::delete($path);
+
+        return response()->json(['message' => 'Respaldo del schema ' . $schema . ' eliminado correctamente'], 200);
+    
+    }
 
     // crear un respaldo de una tabla de un esquema
 
@@ -257,7 +258,7 @@ class tablespacesController extends Controller
 
         DB::statement("CREATE OR REPLACE DIRECTORY RESPALDO AS " . "'" . public_path() . "\\respaldos'");
 
-        $cmd = "EXPDP NEWUSER/VSCODE21C@XE TABLES=" . $schema . "." . $table . " DIRECTORY=RESPALDO DUMPFILE=" . $table . ".DMP LOGFILE=" . $table . ".LOG";
+        $cmd = "EXPDP SYSTEM/coutJonathan97@XE TABLES=" . $schema . "." . $table . " DIRECTORY=RESPALDO DUMPFILE=" . $table . ".DMP LOGFILE=" . $table . ".LOG";
 
         shell_exec($cmd);
 
@@ -265,6 +266,33 @@ class tablespacesController extends Controller
 
         return response()->json(['message' => 'Respaldo de tabla creado', 'path' => $path], 201);
     }
+
+    public function createDatabaseBackUp(Request $request)
+    {
+        $database = $request->input('database');
+        DB::statement('alter session set "_oracle_script"=true');
+
+        DB::statement("CREATE OR REPLACE DIRECTORY RESPALDO AS " . "'" . public_path() . "\\respaldos'");
+
+        $cmd = "EXPDP SYSTEM/Linsolis3005@XE FULL=Y DIRECTORY=RESPALDO DUMPFILE= " . $database . ".DMP LOGFILE=" . $database . ".LOG";
+
+       try{
+        shell_exec($cmd);
+        return response()->json(['message' => 'Respaldo de la base de datos ' . $database . ' creado correctamente'], 200);
+    } catch (\Throwable $th) {
+        return response()->json(['message' => 'Error al crear el respaldo'], 500);
+    }
+    }
+
+
+
+
+
+
+
+
+
+
     public function createUser(Request $request)
     {
         $fields = $request->validate([
@@ -337,5 +365,18 @@ class tablespacesController extends Controller
         $data = DB::select('select status as status, instance_name as instance_name from v$instance');  
         return $data; 
     }
+    // analizar una tabla de un schema
+    public function analizeTableOfSchema(Request $request)
+    {
+        $schema = $request->input('schemas');
+        $table = $request->input('tables');
+
+        DB::statement('alter session set "_oracle_script"=true');
+
+        DB::statement("ANALYZE TABLE " . $schema . "." . $table . " COMPUTE STATISTICS");
+
+        return response(['message' => 'Tablas re-analizadas'], 200);
+    }
+
 
 }

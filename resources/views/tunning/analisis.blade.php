@@ -31,7 +31,7 @@
 
                 <div class="card-body">
 
-                    <form action="auditoria/columnOfATableOfASchema" method="POST">
+                    <form action="tunning/analizeTableOfSchema" method="POST">
 
                         @csrf
 

@@ -101,7 +101,7 @@ img {
                   <div class="dropdown-content" id = "dropdown-content">
                     <a href="http://localhost/vscode21c/dbalocal/public/performace-general">General</a>
                     <a href="http://localhost/vscode21c/dbalocal/public/monitorio-instancia">Monitoreo de instancia</a>
-                    <a href="#">Link 3</a>
+                    <a href="http://localhost/vscode21c/dbalocal/public/tunning-general">Tunning</a>
                   </div>
               </li>
               <li><a class="dropdown-item" href="#">Estadística</a></li>
