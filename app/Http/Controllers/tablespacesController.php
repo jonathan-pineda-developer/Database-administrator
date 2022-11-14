@@ -204,7 +204,7 @@ class tablespacesController extends Controller
 
        try{
         shell_exec($cmd);
-        Alert::success('Respaldo generado', 'Se ha registrado un respaldo FULL con el nombre ' . $fields . ' del sistema');
+        Alert::success('Respaldo generado', 'Se ha registrado un respaldo FULL en el sistema');
         return redirect()->back();
     } catch (\Throwable $th) {
         
@@ -225,7 +225,7 @@ class tablespacesController extends Controller
        
         try {
             File::delete($path);
-            Alert::success('Respaldo eliminado', 'Se ha eliminado el respaldo FULL con el nombre ' . $fields . ' del sistema');
+            Alert::success('Respaldo eliminado', 'Se ha eliminado el respaldo FULL del sistema');
                  return redirect()->back();
             } catch (\Throwable $th) {
                 Alert:: error('Error', 'No se ha podido eliminar el respaldo, intente de nuevo');

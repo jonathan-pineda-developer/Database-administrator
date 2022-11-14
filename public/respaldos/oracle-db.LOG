@@ -1,0 +1,283 @@
+;;; 
+Export: Release 21.0.0.0.0 - Production on Lun Nov 14 10:58:35 2022
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle and/or its affiliates.  All rights reserved.
+;;; 
+Conectado a: Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Iniciando "SYSTEM"."SYS_EXPORT_FULL_01":  SYSTEM/********@XE FULL=Y DIRECTORY=RESPALDO DUMPFILE=oracle-db.DMP LOGFILE=oracle-db.LOG 
+Procesando el tipo de objeto DATABASE_EXPORT/EARLY_OPTIONS/VIEWS_AS_TABLES/TABLE_DATA
+Procesando el tipo de objeto DATABASE_EXPORT/NORMAL_OPTIONS/TABLE_DATA
+Procesando el tipo de objeto DATABASE_EXPORT/NORMAL_OPTIONS/VIEWS_AS_TABLES/TABLE_DATA
+Procesando el tipo de objeto DATABASE_EXPORT/SCHEMA/TABLE/TABLE_DATA
+Procesando el tipo de objeto DATABASE_EXPORT/SCHEMA/TABLE/INDEX/STATISTICS/INDEX_STATISTICS
+Procesando el tipo de objeto DATABASE_EXPORT/SCHEMA/TABLE/INDEX/STATISTICS/FUNCTIONAL_INDEX/INDEX_STATISTICS
+Procesando el tipo de objeto DATABASE_EXPORT/SCHEMA/TABLE/STATISTICS/TABLE_STATISTICS
+Procesando el tipo de objeto DATABASE_EXPORT/STATISTICS/MARKER
+Procesando el tipo de objeto DATABASE_EXPORT/PRE_SYSTEM_IMPCALLOUT/MARKER
+Procesando el tipo de objeto DATABASE_EXPORT/PRE_INSTANCE_IMPCALLOUT/MARKER
+Procesando el tipo de objeto DATABASE_EXPORT/TABLESPACE
+Procesando el tipo de objeto DATABASE_EXPORT/PROFILE
+Procesando el tipo de objeto DATABASE_EXPORT/RADM_FPTM
+Procesando el tipo de objeto DATABASE_EXPORT/GRANT/SYSTEM_GRANT/PROC_SYSTEM_GRANT
+Procesando el tipo de objeto DATABASE_EXPORT/SCHEMA/ROLE_GRANT
+Procesando el tipo de objeto DATABASE_EXPORT/SCHEMA/DEFAULT_ROLE
+Procesando el tipo de objeto DATABASE_EXPORT/SCHEMA/ON_USER_GRANT
+Procesando el tipo de objeto DATABASE_EXPORT/SCHEMA/TABLESPACE_QUOTA
+Procesando el tipo de objeto DATABASE_EXPORT/RESOURCE_COST
+Procesando el tipo de objeto DATABASE_EXPORT/SCHEMA/DB_LINK
+Procesando el tipo de objeto DATABASE_EXPORT/TRUSTED_DB_LINK
+Procesando el tipo de objeto DATABASE_EXPORT/SCHEMA/SEQUENCE/SEQUENCE
+Procesando el tipo de objeto DATABASE_EXPORT/SYSTEM_PROCOBJACT/PRE_SYSTEM_ACTIONS/PROCACT_SYSTEM
+Procesando el tipo de objeto DATABASE_EXPORT/SYSTEM_PROCOBJACT/PROCOBJ
+Procesando el tipo de objeto DATABASE_EXPORT/SYSTEM_PROCOBJACT/POST_SYSTEM_ACTIONS/PROCACT_SYSTEM
+Procesando el tipo de objeto DATABASE_EXPORT/SCHEMA/PROCACT_SCHEMA
+Procesando el tipo de objeto DATABASE_EXPORT/EARLY_OPTIONS/VIEWS_AS_TABLES/TABLE
+Procesando el tipo de objeto DATABASE_EXPORT/EARLY_POST_INSTANCE_IMPCALLOUT/MARKER
+Procesando el tipo de objeto DATABASE_EXPORT/NORMAL_OPTIONS/TABLE
+Procesando el tipo de objeto DATABASE_EXPORT/NORMAL_OPTIONS/VIEWS_AS_TABLES/TABLE
+Procesando el tipo de objeto DATABASE_EXPORT/NORMAL_POST_INSTANCE_IMPCALLOUT/MARKER
+Procesando el tipo de objeto DATABASE_EXPORT/SCHEMA/TABLE/TABLE
+Procesando el tipo de objeto DATABASE_EXPORT/SCHEMA/TABLE/GRANT/OWNER_GRANT/OBJECT_GRANT
+Procesando el tipo de objeto DATABASE_EXPORT/SCHEMA/TABLE/COMMENT
+Procesando el tipo de objeto DATABASE_EXPORT/SCHEMA/PROCEDURE/PROCEDURE
+Procesando el tipo de objeto DATABASE_EXPORT/SCHEMA/PROCEDURE/ALTER_PROCEDURE
+Procesando el tipo de objeto DATABASE_EXPORT/SCHEMA/TABLE/INDEX/INDEX
+Procesando el tipo de objeto DATABASE_EXPORT/SCHEMA/TABLE/INDEX/FUNCTIONAL_INDEX/INDEX
+Procesando el tipo de objeto DATABASE_EXPORT/SCHEMA/TABLE/CONSTRAINT/CONSTRAINT
+Procesando el tipo de objeto DATABASE_EXPORT/SCHEMA/TABLE/CONSTRAINT/REF_CONSTRAINT
+Procesando el tipo de objeto DATABASE_EXPORT/SCHEMA/TABLE/TRIGGER
+Procesando el tipo de objeto DATABASE_EXPORT/FINAL_POST_INSTANCE_IMPCALLOUT/MARKER
+Procesando el tipo de objeto DATABASE_EXPORT/AUDIT_UNIFIED/AUDIT_POLICY_ENABLE
+Procesando el tipo de objeto DATABASE_EXPORT/AUDIT
+Procesando el tipo de objeto DATABASE_EXPORT/POST_SYSTEM_IMPCALLOUT/MARKER
+. . "SYS"."KU$_USER_MAPPING_VIEW"               6.414 KB      58 filas exportadas
+. . "SYS"."AUD$"                                574.6 KB    2576 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P261"           89.24 KB      79 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P341"           85.00 KB      53 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P643"           75.56 KB      54 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P558"           70.85 KB      33 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P798"           70.85 KB      41 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P863"           66.98 KB      35 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P677"           62.55 KB      21 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P905"           61.62 KB      20 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P698"           60.92 KB      17 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P533"           59.21 KB      12 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P592"           58.24 KB      13 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P492"           57.59 KB      15 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P823"           56.60 KB       9 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P361"           55.94 KB       9 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P670"           55.42 KB       6 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P743"           55.35 KB       6 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P565"           55.29 KB       7 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P612"           55.14 KB       7 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P736"           55.06 KB       9 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P691"           54.58 KB       5 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P898"           54.41 KB       4 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P684"           54.21 KB       6 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P465"           53.85 KB       4 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P650"           53.71 KB       3 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P526"           53.56 KB       3 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P632"           53.53 KB       3 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P927"           53.46 KB       3 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P947"           60.28 KB      18 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P883"           53.32 KB       2 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P783"           53.02 KB       2 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P519"           52.89 KB       2 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P512"           52.89 KB       2 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P441"           52.88 KB       2 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P750"           52.59 KB       1 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P572"           52.58 KB       1 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"SYS_P729"           52.58 KB       1 filas exportadas
+. . "SYSTEM"."REDO_DB"                          26.01 KB       1 filas exportadas
+. . "WMSYS"."WM$WORKSPACES_TABLE$"              12.10 KB       1 filas exportadas
+. . "WMSYS"."WM$HINT_TABLE$"                    9.984 KB      97 filas exportadas
+. . "LBACSYS"."OLS$INSTALLATIONS"               6.960 KB       2 filas exportadas
+. . "WMSYS"."WM$WORKSPACE_PRIV_TABLE$"          7.078 KB      11 filas exportadas
+. . "SYS"."DAM_CONFIG_PARAM$"                   6.531 KB      14 filas exportadas
+. . "SYS"."TSDP_SUBPOL$"                        6.328 KB       1 filas exportadas
+. . "WMSYS"."WM$NEXTVER_TABLE$"                 6.375 KB       1 filas exportadas
+. . "LBACSYS"."OLS$PROPS"                       6.234 KB       5 filas exportadas
+. . "WMSYS"."WM$ENV_VARS$"                      6.015 KB       3 filas exportadas
+. . "SYS"."TSDP_PARAMETER$"                     5.953 KB       1 filas exportadas
+. . "SYS"."TSDP_POLICY$"                        5.921 KB       1 filas exportadas
+. . "WMSYS"."WM$VERSION_HIERARCHY_TABLE$"       5.984 KB       1 filas exportadas
+. . "WMSYS"."WM$EVENTS_INFO$"                   5.812 KB      12 filas exportadas
+. . "LBACSYS"."OLS$AUDIT_ACTIONS"               5.757 KB       8 filas exportadas
+. . "LBACSYS"."OLS$DIP_EVENTS"                  5.539 KB       2 filas exportadas
+. . "AUDSYS"."AUD$UNIFIED":"AUD_UNIFIED_P0"         0 KB       0 filas exportadas
+. . "LBACSYS"."OLS$AUDIT"                           0 KB       0 filas exportadas
+. . "LBACSYS"."OLS$COMPARTMENTS"                    0 KB       0 filas exportadas
+. . "LBACSYS"."OLS$DIP_DEBUG"                       0 KB       0 filas exportadas
+. . "LBACSYS"."OLS$GROUPS"                          0 KB       0 filas exportadas
+. . "LBACSYS"."OLS$LAB"                             0 KB       0 filas exportadas
+. . "LBACSYS"."OLS$LEVELS"                          0 KB       0 filas exportadas
+. . "LBACSYS"."OLS$POL"                             0 KB       0 filas exportadas
+. . "LBACSYS"."OLS$POLICY_ADMIN"                    0 KB       0 filas exportadas
+. . "LBACSYS"."OLS$POLS"                            0 KB       0 filas exportadas
+. . "LBACSYS"."OLS$POLT"                            0 KB       0 filas exportadas
+. . "LBACSYS"."OLS$PROFILE"                         0 KB       0 filas exportadas
+. . "LBACSYS"."OLS$PROFILES"                        0 KB       0 filas exportadas
+. . "LBACSYS"."OLS$PROG"                            0 KB       0 filas exportadas
+. . "LBACSYS"."OLS$SESSINFO"                        0 KB       0 filas exportadas
+. . "LBACSYS"."OLS$USER"                            0 KB       0 filas exportadas
+. . "LBACSYS"."OLS$USER_COMPARTMENTS"               0 KB       0 filas exportadas
+. . "LBACSYS"."OLS$USER_GROUPS"                     0 KB       0 filas exportadas
+. . "LBACSYS"."OLS$USER_LEVELS"                     0 KB       0 filas exportadas
+. . "SYS"."DAM_CLEANUP_EVENTS$"                     0 KB       0 filas exportadas
+. . "SYS"."DAM_CLEANUP_JOBS$"                       0 KB       0 filas exportadas
+. . "SYS"."TSDP_ASSOCIATION$"                       0 KB       0 filas exportadas
+. . "SYS"."TSDP_CONDITION$"                         0 KB       0 filas exportadas
+. . "SYS"."TSDP_FEATURE_POLICY$"                    0 KB       0 filas exportadas
+. . "SYS"."TSDP_PROTECTION$"                        0 KB       0 filas exportadas
+. . "SYS"."TSDP_SENSITIVE_DATA$"                    0 KB       0 filas exportadas
+. . "SYS"."TSDP_SENSITIVE_TYPE$"                    0 KB       0 filas exportadas
+. . "SYS"."TSDP_SOURCE$"                            0 KB       0 filas exportadas
+. . "SYSTEM"."REDO_LOG"                             0 KB       0 filas exportadas
+. . "WMSYS"."WM$BATCH_COMPRESSIBLE_TABLES$"         0 KB       0 filas exportadas
+. . "WMSYS"."WM$CONSTRAINTS_TABLE$"                 0 KB       0 filas exportadas
+. . "WMSYS"."WM$CONS_COLUMNS$"                      0 KB       0 filas exportadas
+. . "WMSYS"."WM$LOCKROWS_INFO$"                     0 KB       0 filas exportadas
+. . "WMSYS"."WM$MODIFIED_TABLES$"                   0 KB       0 filas exportadas
+. . "WMSYS"."WM$MP_GRAPH_WORKSPACES_TABLE$"         0 KB       0 filas exportadas
+. . "WMSYS"."WM$MP_PARENT_WORKSPACES_TABLE$"        0 KB       0 filas exportadas
+. . "WMSYS"."WM$NESTED_COLUMNS_TABLE$"              0 KB       0 filas exportadas
+. . "WMSYS"."WM$RESOLVE_WORKSPACES_TABLE$"          0 KB       0 filas exportadas
+. . "WMSYS"."WM$RIC_LOCKING_TABLE$"                 0 KB       0 filas exportadas
+. . "WMSYS"."WM$RIC_TABLE$"                         0 KB       0 filas exportadas
+. . "WMSYS"."WM$RIC_TRIGGERS_TABLE$"                0 KB       0 filas exportadas
+. . "WMSYS"."WM$UDTRIG_DISPATCH_PROCS$"             0 KB       0 filas exportadas
+. . "WMSYS"."WM$UDTRIG_INFO$"                       0 KB       0 filas exportadas
+. . "WMSYS"."WM$VERSION_TABLE$"                     0 KB       0 filas exportadas
+. . "WMSYS"."WM$VT_ERRORS_TABLE$"                   0 KB       0 filas exportadas
+. . "WMSYS"."WM$WORKSPACE_SAVEPOINTS_TABLE$"        0 KB       0 filas exportadas
+. . "MDSYS"."RDF_PARAM$"                        6.515 KB       3 filas exportadas
+. . "SYS"."AUDTAB$TBS$FOR_EXPORT"               5.953 KB       2 filas exportadas
+. . "SYS"."DBA_SENSITIVE_DATA"                      0 KB       0 filas exportadas
+. . "SYS"."DBA_TSDP_POLICY_PROTECTION"              0 KB       0 filas exportadas
+. . "SYS"."FGA_LOG$FOR_EXPORT"                      0 KB       0 filas exportadas
+. . "SYS"."GV_$UNIFIED_AUDIT_TRAIL"                 0 KB       0 filas exportadas
+. . "SYS"."NACL$_ACE_EXP"                           0 KB       0 filas exportadas
+. . "SYS"."NACL$_HOST_EXP"                      6.976 KB       2 filas exportadas
+. . "SYS"."NACL$_WALLET_EXP"                        0 KB       0 filas exportadas
+. . "SYS"."SQL$TEXT_DATAPUMP"                       0 KB       0 filas exportadas
+. . "SYS"."SQL$_DATAPUMP"                           0 KB       0 filas exportadas
+. . "SYS"."SQLOBJ$AUXDATA_DATAPUMP"                 0 KB       0 filas exportadas
+. . "SYS"."SQLOBJ$DATA_DATAPUMP"                    0 KB       0 filas exportadas
+. . "SYS"."SQLOBJ$PLAN_DATAPUMP"                    0 KB       0 filas exportadas
+. . "SYS"."SQLOBJ$_DATAPUMP"                        0 KB       0 filas exportadas
+. . "SYSTEM"."SCHEDULER_JOB_ARGS"                   0 KB       0 filas exportadas
+. . "SYSTEM"."SCHEDULER_PROGRAM_ARGS"               0 KB       0 filas exportadas
+. . "WMSYS"."WM$EXP_MAP"                        7.718 KB       3 filas exportadas
+. . "WMSYS"."WM$METADATA_MAP"                       0 KB       0 filas exportadas
+. . "TARJETAS"."CLIENTES"                       8.601 KB       1 filas exportadas
+. . "TARJETAS"."BANCOS"                         8.109 KB       1 filas exportadas
+. . "RESIDENCIAL"."CLIENTES"                    7.867 KB       2 filas exportadas
+. . "TARJETAS"."TARJETAS"                       7.812 KB       2 filas exportadas
+. . "RESIDENCIAL"."INGRESOS"                     7.75 KB       1 filas exportadas
+. . "RESIDENCIAL"."FILIALES"                    7.468 KB       2 filas exportadas
+. . "ALGEBRA"."INSTALADOR"                      7.210 KB       1 filas exportadas
+. . "TARJETAS"."TRANSACCIONES"                  7.390 KB       1 filas exportadas
+. . "RESIDENCIAL"."CONTRATOS"                   7.492 KB       1 filas exportadas
+. . "PINTURAS"."CANTONES"                       7.023 KB      82 filas exportadas
+. . "RESIDENCIAL"."DUENOS"                      6.875 KB       1 filas exportadas
+. . "ALGEBRA"."HARDWARE"                        6.781 KB       1 filas exportadas
+. . "ALGEBRA"."ELP"                             6.601 KB      10 filas exportadas
+. . "ALGEBRA"."LIBROS"                            6.5 KB       3 filas exportadas
+. . "RESIDENCIAL"."CONDOMINIOS"                 6.546 KB       2 filas exportadas
+. . "ALGEBRA"."SOFTWARE"                        6.375 KB       1 filas exportadas
+. . "RESIDENCIAL"."VISITANTES"                  6.421 KB       1 filas exportadas
+. . "RESIDENCIAL"."APARTAMENTOS"                6.507 KB       1 filas exportadas
+. . "ALGEBRA"."EDITORIALES"                         6 KB       4 filas exportadas
+. . "ALGEBRA"."PAPELERIAS"                      5.984 KB       3 filas exportadas
+. . "TARJETAS"."MONEDAS"                        5.960 KB       3 filas exportadas
+. . "RESIDENCIAL"."PROVINCIA"                   5.648 KB       7 filas exportadas
+. . "RESIDENCIAL"."DISTRITO"                    5.625 KB       5 filas exportadas
+. . "TARJETAS"."EMAILS"                         5.554 KB       3 filas exportadas
+. . "RESIDENCIAL"."CANTON"                      5.609 KB       4 filas exportadas
+. . "TARJETAS"."TIPO_TRANSACCION"               5.601 KB       3 filas exportadas
+. . "TARJETAS"."MARCAS"                         5.546 KB       3 filas exportadas
+. . "TARJETAS"."TIPO_BANCO"                     5.523 KB       2 filas exportadas
+. . "TARJETAS"."CANTONES"                       5.523 KB       2 filas exportadas
+. . "TARJETAS"."DISTRITOS"                      5.523 KB       2 filas exportadas
+. . "TARJETAS"."TELEFONOS"                      5.570 KB       3 filas exportadas
+. . "TARJETAS"."PROVINCIAS"                     5.523 KB       2 filas exportadas
+. . "RESIDENCIAL"."TIPO_CUOTAS"                 5.570 KB       2 filas exportadas
+. . "RESIDENCIAL"."TIPO_CONTRATOS"              5.570 KB       2 filas exportadas
+. . "TARJETAS"."TIPOS_EMAILS"                   5.523 KB       2 filas exportadas
+. . "TARJETAS"."TIPOS_TARJETAS"                 5.570 KB       2 filas exportadas
+. . "TARJETAS"."TIPOS_TELEFONOS"                5.523 KB       2 filas exportadas
+. . "TARJETAS"."TARJETAS_X_CLIENTES"            5.609 KB       1 filas exportadas
+. . "FACTURAS"."CANTONES"                           0 KB       0 filas exportadas
+. . "FACTURAS"."CLIENTES"                           0 KB       0 filas exportadas
+. . "FACTURAS"."DETALLE_FACTURAS"                   0 KB       0 filas exportadas
+. . "FACTURAS"."DISTRITOS"                          0 KB       0 filas exportadas
+. . "FACTURAS"."EMIALS"                             0 KB       0 filas exportadas
+. . "FACTURAS"."EMPRESAS"                           0 KB       0 filas exportadas
+. . "FACTURAS"."ENCABEZADO_FACTURAS"                0 KB       0 filas exportadas
+. . "FACTURAS"."ESTATUS"                            0 KB       0 filas exportadas
+. . "FACTURAS"."PRODUCTOS"                          0 KB       0 filas exportadas
+. . "FACTURAS"."PROVEEDORES"                        0 KB       0 filas exportadas
+. . "FACTURAS"."PROVINCIAS"                         0 KB       0 filas exportadas
+. . "FACTURAS"."TELEFONOS"                          0 KB       0 filas exportadas
+. . "FACTURAS"."TIPOS_EMAILS"                       0 KB       0 filas exportadas
+. . "FACTURAS"."TIPOS_TELEFONOS"                    0 KB       0 filas exportadas
+. . "HOTELW"."CANTONES"                             0 KB       0 filas exportadas
+. . "HOTELW"."CLIENTES"                             0 KB       0 filas exportadas
+. . "HOTELW"."CORREO"                               0 KB       0 filas exportadas
+. . "HOTELW"."DETALLES_RESERVA"                     0 KB       0 filas exportadas
+. . "HOTELW"."DISTRITO"                             0 KB       0 filas exportadas
+. . "HOTELW"."ENCABEZADO_RESERVAS"                  0 KB       0 filas exportadas
+. . "HOTELW"."HABITACIONES"                         0 KB       0 filas exportadas
+. . "HOTELW"."HOTELX"                               0 KB       0 filas exportadas
+. . "HOTELW"."PROVINCIAS"                           0 KB       0 filas exportadas
+. . "HOTELW"."SERVICIOS"                            0 KB       0 filas exportadas
+. . "HOTELW"."TELEFONOS"                            0 KB       0 filas exportadas
+. . "HOTELW"."TIPOS_HABITACION"                     0 KB       0 filas exportadas
+. . "HOTELW"."TIPO_CORREOS"                         0 KB       0 filas exportadas
+. . "HOTELW"."TIPO_TELEFONOS"                       0 KB       0 filas exportadas
+. . "HOTEL_X"."CANTON"                              0 KB       0 filas exportadas
+. . "HOTEL_X"."CLIENTE"                             0 KB       0 filas exportadas
+. . "HOTEL_X"."CORREO"                              0 KB       0 filas exportadas
+. . "HOTEL_X"."DETALLE_RESERVA"                     0 KB       0 filas exportadas
+. . "HOTEL_X"."DISTRITOS"                           0 KB       0 filas exportadas
+. . "HOTEL_X"."HABITACION"                          0 KB       0 filas exportadas
+. . "HOTEL_X"."HOTEL"                               0 KB       0 filas exportadas
+. . "HOTEL_X"."PROVINCIAS"                          0 KB       0 filas exportadas
+. . "HOTEL_X"."RESERVA"                             0 KB       0 filas exportadas
+. . "HOTEL_X"."SERVICIOS"                           0 KB       0 filas exportadas
+. . "HOTEL_X"."SERV_ADICIONAL"                      0 KB       0 filas exportadas
+. . "HOTEL_X"."TELF"                                0 KB       0 filas exportadas
+. . "HOTEL_X"."TIPO_CORREO"                         0 KB       0 filas exportadas
+. . "HOTEL_X"."TIPO_TELF"                           0 KB       0 filas exportadas
+. . "HOTEL_X"."TP_HABITACION"                       0 KB       0 filas exportadas
+. . "PINTURAS"."CLIENTES"                           0 KB       0 filas exportadas
+. . "PINTURAS"."COLORES"                            0 KB       0 filas exportadas
+. . "PINTURAS"."DET_FACTURA"                        0 KB       0 filas exportadas
+. . "PINTURAS"."DISTRITOS"                          0 KB       0 filas exportadas
+. . "PINTURAS"."ENC_FACTURAS"                       0 KB       0 filas exportadas
+. . "PINTURAS"."PINTURAS"                           0 KB       0 filas exportadas
+. . "PINTURAS"."PRESENTACIONES"                     0 KB       0 filas exportadas
+. . "PINTURAS"."PROVEEDORES"                        0 KB       0 filas exportadas
+. . "PINTURAS"."PROVINCIAS"                         0 KB       0 filas exportadas
+. . "PINTURAS"."TIPOS"                              0 KB       0 filas exportadas
+. . "PUBS"."AUTHORS"                                0 KB       0 filas exportadas
+. . "PUBS"."DISCOUNT"                               0 KB       0 filas exportadas
+. . "PUBS"."EMPLOYEE"                               0 KB       0 filas exportadas
+. . "PUBS"."JOBS"                                   0 KB       0 filas exportadas
+. . "PUBS"."PERSONA"                                0 KB       0 filas exportadas
+. . "PUBS"."PUBLISHERS"                             0 KB       0 filas exportadas
+. . "PUBS"."PUB_INFO"                               0 KB       0 filas exportadas
+. . "PUBS"."ROYSCHED"                               0 KB       0 filas exportadas
+. . "PUBS"."SALES"                                  0 KB       0 filas exportadas
+. . "PUBS"."STORES"                                 0 KB       0 filas exportadas
+. . "PUBS"."TITLEAUTHOR"                            0 KB       0 filas exportadas
+. . "PUBS"."TITLES"                                 0 KB       0 filas exportadas
+. . "SYSTEM"."MIGRATIONS"                           0 KB       0 filas exportadas
+. . "TARJETAS"."PREMIOS"                            0 KB       0 filas exportadas
+. . "TARJETAS"."PUNTOS"                             0 KB       0 filas exportadas
+La tabla maestra "SYSTEM"."SYS_EXPORT_FULL_01" se ha cargado/descargado correctamente
+******************************************************************************
+El juego de archivos de volcado para SYSTEM.SYS_EXPORT_FULL_01 es:
+  C:\XAMPP\HTDOCS\VSCODE21C\DBALOCAL\PUBLIC\RESPALDOS\ORACLE-DB.DMP
+El trabajo "SYSTEM"."SYS_EXPORT_FULL_01" ha terminado correctamente en Lun Nov 14 11:02:38 2022 elapsed 0 00:04:00
