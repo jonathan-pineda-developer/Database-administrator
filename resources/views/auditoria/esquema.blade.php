@@ -16,7 +16,7 @@
 <br>
 <div class="row">
 	<div class="col-xl-7 mx-auto">
-		<h6 class="mb-0 text-uppercase">Administración de usuarios</h6>
+		<h6 class="mb-0 text-uppercase">Consultar tablas de un esquema</h6>
 		<hr>
 		<div class="card border-top border-0 border-4 border-danger">
 			<div class="card-body p-5">
@@ -26,25 +26,25 @@
 					<h5 class="mb-0 text-danger">[ Oracle 21c ]</h5>
 				</div>
 				<hr>
-				<form class="row g-3 was-validated"form action="{{ url('esquemas/deleteUser') }}" method="POST">
+				<form class="row g-3 was-validated"form action="{{ url('auditoria/tablasDeSchemas') }}" method="POST">
                       @csrf
 					<div class="col-md-6">
-						<label for="uname" class="form-label">Nombre del usuario - Eliminar</label>
+						<label for="uname" class="form-label">Esquemas en el sistema</label>
 						<br>
 						<div class="input-group"> <span class="input-group-text bg-transparent"><i class="bx bxs-user"></i></span>
 							<select id = "uname" name = "uname" class="form-control " required>
-							<option  enabled selected value=""  >Seleccione el usuario</option>
-								@foreach($data3 as $schema)
+							<option  enabled selected value=""  >Seleccione el esquema</option>
+								@foreach($data9 as $schema)
 									<option value="{{ $schema->schema_name }}">{{ $schema->schema_name }}</option>
 								@endforeach
 							</select>
-								<div class="valid-feedback">Usuario detectado!</div>
-								<div class="invalid-feedback">Debe seleccionar el usuario a eliminar</div>
+								<div class="valid-feedback">Esquema seleccionado!</div>
+								<div class="invalid-feedback">Debe seleccionar el un esquema</div>
 						</div>
 					<br>
 					<br>
 					<div class="col-12">
-					<button type="submit" class="btn btn-danger px-5">Eliminar</button>
+					<button type="submit" class="btn btn-danger px-5">consultar</button>
 					</div>
 				</form>
 			</div>

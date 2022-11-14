@@ -45,6 +45,7 @@ Route::get('/update-tablespace', function () {
     return view('tablespace/update',['data'=>tablespacesController::tablespaces()]);
 });
 Route::post('/tablespace/resizeTablespace', [tablespacesController::class, 'resizeTablespace']);
+
 Route::get('/delete-tablespace', function () {
     return view('tablespace/delete',['data'=>tablespacesController::tablespaces()]);
 });
@@ -74,6 +75,7 @@ Route::get('/update-user', function () {
 });
 Route::post('/esquemas/updateUser', [tablespacesController::class, 'updateUser']);
 
+
 //----------------------------- RESPALDOS -----------------------------
 Route::get('/backup-user', function () {
     return view('respaldos/usuario',['data4'=>tablespacesController::schemas()]);
@@ -91,14 +93,25 @@ Route::get('/auditoria-home', function () {
 });
 Route::get('/auditoria/auditoriaConexiones', [tablespacesController::class, 'auditoriaConexiones']);
 Route::get('/auditoria-general', function () {
-    return view('auditoria/general',['data5'=>tablespacesController::auditoriaGeneral()]);
+    return view('auditoria/general',['data6'=>tablespacesController::auditoriaGeneral()]);
 });
 
+Route::get('/tablas-esquema', function () {
+    return view('auditoria/esquema',['data9'=>tablespacesController::schemas()]);//ok
+});
+Route::post('/auditoria/tablasDeSchemas', [tablespacesController::class, 'tablasDeSchemas']); //ok
 
+//--copia
+Route::get('/tabla-contenido', function () {
+    return view('auditoria/tabla', ['schemas' => tablespacesController::schemas()]);
+});
+Route::post('/auditoria/columnOfATableOfASchema', [tablespacesController::class, 'columnOfATableOfASchema']);
+
+//copia
 
 //----------------------------- PLANES DE EJECUCION -----------------------------
 Route::get('/performace-general', function () {
-    return view('ejecucion/general',['data6'=>tablespacesController::ejecucionGeneral()]);
+    return view('ejecucion/general',['data8'=>tablespacesController::ejecucionGeneral()]);
 });
 Route::get('/ejecucion-general', [tablespacesController::class, 'ejecucionGeneral']);
 
@@ -117,8 +130,7 @@ Route::get('/monitorio-instancia', function () {
 
 //delete .log and .dmp files
 Route::get('/delete-backup/{schema}', [tablespacesController::class, 'deleteSchemaBackUp']);
-//listar una tabla de una schema(schema = basedatos && tabla = clase)[muestra las columnas de la tabla]
-Route::get('/schema-table/{schema}/{table}', [tablespacesController::class, 'columnOfATableOfASchema']);
+
 //Listar todas las tablas del schema [ver todas las clases dentro de la base de datos]
 Route::get('/schema-tables/{schema}', [tablespacesController::class, 'tablasDeSchemas']);
 //analizar un schema

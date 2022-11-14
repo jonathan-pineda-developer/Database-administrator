@@ -142,20 +142,37 @@ class tablespacesController extends Controller
     
     }
     // listar una tabla de una schema(schema = basedatos && tabla = clase)[muestra las columnas de la tabla] 
-    public function columnOfATableOfASchema($schema, $table)
+    /*public static function columnOfATableOfASchema($schema, $table)
     {
 
         $data = DB::select("select column_name from all_tab_columns where table_name ='" . $table . "' AND OWNER ='" . $schema . "'");
           return $data;      
-    }
-    public function tablasDeSchemas($schema)
+    }*/
+    public function columnOfATableOfASchema(Request $request)
     {
-        return DB::table('all_tables')
+        $schema = $request->input('schemas');
+        $table = $request->input('tables');
+
+        $data = DB::select("select column_name from all_tab_columns where table_name ='" . $table . "' AND OWNER ='" . $schema . "'");
+         // $data = DB::table('all_tab_columns')->where('table_name', $table)->where('OWNER', $schema)->get();
+        return $data;
+        
+
+
+    }
+
+    public function  tablasDeSchemas(Request $request)
+    {
+  
+        $schema = $request->input('uname');
+         $data = DB::table('all_tables')
             ->select('table_name')
             ->where('owner', $schema)
             ->orderBy('table_name')
             ->get();
+        return $data;
     }
+
     public function analizeSchema($schema)
     {
       

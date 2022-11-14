@@ -109,8 +109,8 @@ img {
                  <a href="http://localhost/vscode21c/dbalocal/public/auditoria-home" class="dropbtn" id="dropbtn">Auditoria</a>
                   <div class="dropdown-content" id = "dropdown-content">
                     <a href="http://localhost/vscode21c/dbalocal/public/auditoria-general">General</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
+                    <a href="http://localhost/vscode21c/dbalocal/public/tablas-esquema">Esquemas</a>
+                    <a href="http://localhost/vscode21c/dbalocal/public/tabla-contenido">Tablas</a>
                   </div>
               </li>
              

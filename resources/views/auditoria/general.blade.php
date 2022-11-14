@@ -38,7 +38,7 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                 @foreach($data5 as $table)
+                                                                 @foreach($data6 as $table)
                                                                  <tr>
                                                                     <th scope="row" class="text-lowercase" value="{{$table->userhost}}">{{ $table->userhost }}</th>
                                                                     <th scope="row" class="text-lowercase" value="{{$table->username}}">{{ $table->username }}</th>

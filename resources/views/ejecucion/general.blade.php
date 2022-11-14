@@ -35,7 +35,7 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                 @foreach($data6 as $table)
+                                                                 @foreach($data8 as $table)
                                                                  <tr>
                                                                     <th scope="row" class="text-lowercase" value="{{$table->operation}}">{{ $table->operation}}</th>
                                                                     <th scope="row" class="text-lowercase" value="{{$table->object_name}}">{{ $table->object_name }}</th>
