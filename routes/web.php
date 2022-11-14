@@ -87,6 +87,13 @@ Route::get('/delete-userbackup', function () {
 });
 Route::post('/respaldos/borrarRespaldoUsuario', [tablespacesController::class, 'borrarRespaldoUsuario']);
 
+Route::get('/respaldo-full', function () {
+    return view('respaldos/sistema');
+});
+Route::post('/respaldos/createDatabaseBackUp', [tablespacesController::class, 'createDatabaseBackUp']);
+Route::post('/respaldos/deleteDatabaseBackUp', [tablespacesController::class, 'deleteDatabaseBackUp']);
+
+
 //----------------------------- AUDITORIA -----------------------------
 Route::get('/auditoria-home', function () {
     return view('auditoria/index',['data5'=>tablespacesController::auditoriaGeneral()]);

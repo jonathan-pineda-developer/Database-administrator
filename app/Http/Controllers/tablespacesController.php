@@ -274,7 +274,7 @@ class tablespacesController extends Controller
 
         DB::statement("CREATE OR REPLACE DIRECTORY RESPALDO AS " . "'" . public_path() . "\\respaldos'");
 
-        $cmd = "EXPDP SYSTEM/Linsolis3005@XE FULL=Y DIRECTORY=RESPALDO DUMPFILE= " . $database . ".DMP LOGFILE=" . $database . ".LOG";
+        $cmd = "EXPDP SYSTEM/coutJonathan97@XE FULL=Y DIRECTORY=RESPALDO DUMPFILE= " . $database . ".DMP LOGFILE=" . $database . ".LOG";
 
        try{
         shell_exec($cmd);
@@ -283,7 +283,25 @@ class tablespacesController extends Controller
         return response()->json(['message' => 'Error al crear el respaldo'], 500);
     }
     }
+    public function deleteDatabaseBackUp(Request $request)
+    {
+        $database = $request->input('deletedb');
+        $path = public_path() . '\\respaldos\\' . $database . '.DMP';
 
+        File::delete($path);
+
+        $path = public_path() . '\\respaldos\\' . $database . '.LOG';
+
+        File::delete($path);
+       
+        try {
+            File::delete($path);
+             return response()->json(['message' => 'Respaldo de la base de datos ' . $database . ' eliminado correctamente'], 200);
+            } catch (\Throwable $th) {
+                return response()->json(['message' => 'Error al eliminar el respaldo'], 500);
+            }
+    }
+   
 
 
 
