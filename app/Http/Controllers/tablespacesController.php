@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
 
+
 class tablespacesController extends Controller
 {
     //
@@ -40,10 +41,12 @@ class tablespacesController extends Controller
             DB::statement('alter session set "_oracle_script"=true');
             DB::statement("CREATE TABLESPACE " . $fields . " DATAFILE '" . 'C:\\app\\50683\\product\\21c\\oradata\\XE\vscode\\tablespaces\\' . $fields . ".DBF' SIZE 100M AUTOEXTEND ON NEXT 50");
            
+            
 
 
-      
-        return response(['Oracle dice' => 'Tablespace creado con éxito'], 201);
+         // Alert::success('Tablespace creado correctamente', 'Se ha agregado el tablespace ' . $fields . ' correctamente');
+          return redirect('/show-tablespace');
+        //return response(['Oracle dice' => 'Tablespace creado con éxito'], 201);
     }
  
  // PARA POST METHOD CREAR TABLESPACE TEMPORAL
