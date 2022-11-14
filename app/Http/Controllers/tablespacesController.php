@@ -339,6 +339,58 @@ class tablespacesController extends Controller
         order by username');
         return $data;
     }
+      //listar roles de un usuario
+      public static function roles()
+      {
+          return $data = DB::table('DBA_ROLES')
+              ->select('role')
+              ->get();
+      }
+      //asignar un role a un usuario
+     //  METODO POST PARA ASIGNAR UN ROLE A UN USUARIO
+      public function assignRole(Request $request)
+      {
+          $fields = $request->validate([
+              "user" => "required",
+              "role" => "required",
+          ]);
+  
+          DB::statement('alter session set "_oracle_script"=true');
+  
+          $data = DB::statement("GRANT " . $fields['role'] . " TO " . $fields['user']);
+          
+          Alert::success('Asignacion de role', 'Role asignado correctamente a'. $fields['user']);
+          return redirect()->back();
+      }
+      //listar los usuarios del sistema
+      public static function users()
+      {
+          return $data = DB::table('DBA_USERS')
+              ->select('username')
+              ->get();
+      }
+              //asignar un privilegio a un usuario
+              public function assignPrivilege(Request $request)
+              {
+                  $fields = $request->validate([
+                      "user" => "required",
+                      "privilege" => "required",
+                  ]);
+          
+                  DB::statement('alter session set "_oracle_script"=true');
+          
+                  $data = DB::statement("GRANT " . $fields['privilege'] . " TO " . $fields['user']);
+                  
+                  Alert::success('Asignacion de privilegio', 'Privilegio asignado correctamente a'. $fields['user']);
+                  return redirect()->back();
+              }
+              //listar todos los roles y privilegios de todos los usuarios
+              public static function rolesPrivileges()
+              {
+                  DB::statement('alter session set "_oracle_script"=true');
+                  $data = DB::select('select grantee as usuario, privilege as privilegio from dba_sys_privs order by grantee asc');
+                  return $data;
+              }
     //-----------------------------------------------------------------------
     public function auditoriaConexiones()
     {
@@ -363,60 +415,30 @@ class tablespacesController extends Controller
             return response()->json(['message' => 'Respaldo de tabla creado', 'path' => $path], 201);
         }
             //listar privilegios de un usuario 
-     public static function privileges()
+     public static function privilegios()
      {
-         return DB::table('DBA_SYS_PRIVS')
+         return $data = DB::table('DBA_SYS_PRIVS')
              ->select('privilege')
              ->distinct()
              ->get();
      }
-     //listar roles de un usuario
-     public static function roles()
-     {
-         return $data = DB::table('DBA_ROLES')
-             ->select('role')
-             ->get();
-     }
-     //asignar un role a un usuario
-    //  METODO POST PARA ASIGNAR UN ROLE A UN USUARIO
-     public function assignRole(Request $request)
-     {
-         $fields = $request->validate([
-             "user" => "required",
-             "role" => "required",
-         ]);
- 
-         DB::statement('alter session set "_oracle_script"=true');
- 
-         $data = DB::statement("GRANT " . $fields['role'] . " TO " . $fields['user']);
-         
-         Alert::success('Asignacion de role', 'Role asignado correctamente a'. $fields['user']);
-         return redirect()->back();
-     }
-     //Asignar un role a un usuario por metodo get
-    /* public function assignRole($user, $role)
-     {
-         DB::statement('alter session set "_oracle_script"=true');
- 
-         DB::statement("GRANT " . $role . " TO " . $user);
-         
-         return response(['message' => 'Rol asignado'], 201);
-     }*/
-     //listar los usuarios del sistema
-     public static function users()
-     {
-         return $data = DB::table('DBA_USERS')
-             ->select('username')
-             ->get();
-     }
+   
      //listar los privilegios de un usuario
-     public function privilegesOfAUser($user)
+     public function privilegesOfAUser(Request $request)
      {
-         return DB::table('DBA_SYS_PRIVS')
+        $fields = $request->validate([
+            "user" => "required"
+        ]);
+        DB::statement('alter session set "_oracle_script"=true');
+          $data = DB::table('DBA_SYS_PRIVS')
              ->select('privilege')
-             ->where('grantee', $user)
+             ->where('grantee', $fields['user'])
              ->get();
+        Alert::info('Privilegios de usuario', 'Privilegios de usuario consultados de'.$fields['user'] .' correctamente');
+        return redirect()->back();
+
      }
+
 
 
 

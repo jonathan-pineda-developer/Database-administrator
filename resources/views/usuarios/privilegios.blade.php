@@ -17,7 +17,7 @@
 <br>
 <div class="row">
 	<div class="col-xl-7 mx-auto">
-		<h6 class="mb-0 text-uppercase">Roles y permisos</h6>
+		<h6 class="mb-0 text-uppercase">Privilegios y permisos</h6>
 		<hr>
 		<div class="card border-top border-0 border-4 border-danger">
 			<div class="card-body p-5">
@@ -27,10 +27,10 @@
 					<h5 class="mb-0 text-danger">[ Oracle 21c ]</h5>
 				</div>
 				<hr>
-				<form class="row g-3 was-validated"form action="{{ url('usuarios/assignRole') }}" method="POST">
+				<form class="row g-3 was-validated"form action="{{ url('usuarios/assignPrivilege') }}" method="POST">
                       @csrf
 					<div class="col-md-6">
-						<label for="uname" class="form-label">ASIGNAR UN ROLE </label>
+						<label for="uname" class="form-label">ASIGNAR UN PRIVILEGIO</label>
 						<br>
 						<div class="input-group"> <span class="input-group-text bg-transparent"><i class="bx bxs-user"></i></span>
 							<select id = "user" name = "user" class="form-control " required>
@@ -43,30 +43,27 @@
 								<div class="invalid-feedback">Debe seleccionar el usuario</div>
 						</div>
                         <div class="input-group"> <span class="input-group-text bg-transparent"><i class="bx bxs-user"></i></span>
-							<select id = "role" name = "role" class="form-control " required>
+							<select id = "privilege" name = "privilege" class="form-control " required>
 							<option  enabled selected value=""  >Seleccione el role</option>
-								@foreach($rol as $schema)
-									<option value="{{ $schema->role}}">{{ $schema->role }}</option>
+								@foreach($privilegio as $privilegios)
+									<option value="{{ $privilegios->privilege}}">{{ $privilegios->privilege }}</option>
 								@endforeach
 							</select>
-								<div class="valid-feedback">Rol seleccionado correctamente!</div>
-								<div class="invalid-feedback">Debe seleccionar un rol</div>
+								<div class="valid-feedback">Privilegio seleccionado correctamente!</div>
+								<div class="invalid-feedback">Debe seleccionar un privilegio</div>
 						</div>
                         
                         
 					<br>
 					<br>
 					<div class="col-12">
-					<button type="submit" class="btn btn-danger px-5">Asignar role</button>
+					<button type="submit" class="btn btn-danger px-5">Asignar privilegio</button>
 					</div>
 				</form>
 			</div>
 		</div>
 </div>
-<!--end row-->
 </div>
-<!--end row-->
-
 
 </body>
 </html>

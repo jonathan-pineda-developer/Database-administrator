@@ -114,7 +114,7 @@ img {
                   </div>
               </li>
              
-              <li><a class="dropdown-item" href="#">Otros</a></li>
+              <li><a class="dropdown-item" href="http://localhost/vscode21c/dbalocal/public/auditoria-home">Activar auditorias</a></li>
               
             </ul>
             </li>
@@ -146,11 +146,11 @@ img {
             </a>
             <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
             <li class="dropdown-item" id ="dropdown">
-                 <a href="http://localhost/vscode21c/dbalocal/public/auditoria-home" class="dropbtn" id="dropbtn">Usuario</a>
+                 <a href="#" class="dropbtn" id="dropbtn">Usuario</a>
                   <div class="dropdown-content" id = "dropdown-content">
                     <a href="http://localhost/vscode21c/dbalocal/public/permisos-usuario">Asignar rol</a>
-                    <a href="#">Esquemas</a>
-                    <a href="#">Tablas</a>
+                    <a href="http://localhost/vscode21c/dbalocal/public/privilegios-usuario">Asignar privilegios</a>
+                    <a href="http://localhost/vscode21c/dbalocal/public/listar-permisos">Ver privilegios del sistema</a>
                   </div>
               </li>
               <li>

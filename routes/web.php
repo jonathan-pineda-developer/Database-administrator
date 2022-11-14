@@ -80,6 +80,13 @@ Route::get('/permisos-usuario', function () {
 });
 Route::post('/usuarios/assignRole', [tablespacesController::class, 'assignRole']);
 
+Route::get('/privilegios-usuario', function () {
+    return view('usuarios/privilegios',['privilegio'=>tablespacesController::privilegios()],['usuario'=>tablespacesController::users()]);
+});
+Route::post('/usuarios/assignPrivilege', [tablespacesController::class, 'assignPrivilege']);
+Route::get('/listar-permisos', function () {
+    return view('usuarios/roles-privilegios',['lista' => tablespacesController::rolesPrivileges()]);
+});
 
 //----------------------------- RESPALDOS -----------------------------
 Route::get('/backup-user', function () {
@@ -101,7 +108,7 @@ Route::post('/respaldos/deleteDatabaseBackUp', [tablespacesController::class, 'd
 
 //----------------------------- AUDITORIA -----------------------------
 Route::get('/auditoria-home', function () {
-    return view('auditoria/index',['data5'=>tablespacesController::auditoriaGeneral()]);
+    return view('auditoria/index');
 });
 Route::get('/auditoria/auditoriaConexiones', [tablespacesController::class, 'auditoriaConexiones']);
 Route::get('/auditoria-general', function () {
