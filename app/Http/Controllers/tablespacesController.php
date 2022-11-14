@@ -53,17 +53,22 @@ class tablespacesController extends Controller
         DB::statement('alter session set "_oracle_script"=true');
 
         DB::statement("CREATE TEMPORARY TABLESPACE " . $fields . "_TEMP TEMPFILE '" . public_path() . "\\tablespaces\\" . $fields . "_TEMP.DBF' SIZE 25M AUTOEXTEND ON NEXT 50");
-
-        return response(['message' => 'Tablespace creado con éxito'], 201);
+        
+        Alert::success('Temporary Tablespace creado correctamente', 'Se ha agregado el tablespace ' . $fields . ' correctamente');
+        return redirect()->back();
+        
     }
     public function deleteTablespace(Request $request)
     {
+        //verificar espacio requerido
         $fields = $request->input('uname'); //dee
 
         DB::statement('alter session set "_oracle_script"=true');
 
         DB::statement("DROP TABLESPACE " . $fields . " INCLUDING CONTENTS AND DATAFILES");
-        return response(['message' => 'Tablespace eliminado con éxito'], 201);
+        
+        Alert::warning('Tablespace eliminado correctamente', 'Se ha eliminado el tablespace ' . $fields . ' del sistema');
+        return redirect()->back();
     }
 
     public static function tablespaces()
@@ -86,7 +91,8 @@ class tablespacesController extends Controller
 
         DB::statement("ALTER DATABASE DATAFILE '" . 'C:\\app\\50683\\product\\21c\\oradata\\XE\vscode\\tablespaces\\' . $fields . ".DBF' RESIZE " . $size . "M");
 
-        return response(['message' => 'Tablespace redimensionado con éxito'], 201);
+        Alert::success('Tablespace actualizado correctamente', 'Se ha actualizado el tablespace ' . $fields . ' correctamente');
+        return redirect()->back();
     }
 
   //METODO POST PARA CAMBIAR EL TAMAÑO DE UN TEMPORARY TABLESPACE
@@ -98,7 +104,8 @@ class tablespacesController extends Controller
 
         DB::statement("ALTER DATABASE TEMPFILE '" . public_path() ."\\tablespaces\\" . $fields . ".DBF' RESIZE " . $size . "M");
 
-        return response(['message' => 'Tablespace redimensionado con éxito'], 201);
+        Alert::success('Temporary Tablespace actualizado correctamente', 'Se ha actualizado el tablespace ' . $fields . ' correctamente');
+        return redirect()->back();
     }
    
     public function columnOfATableOfASchema(Request $request)
@@ -106,11 +113,10 @@ class tablespacesController extends Controller
         $schema = $request->input('schemas');
         $table = $request->input('tables');
 
-        $data = DB::select("select column_name from all_tab_columns where table_name ='" . $table . "' AND OWNER ='" . $schema . "'");
+        $data = DB::statement("select column_name from all_tab_columns where table_name ='" . $table . "' AND OWNER ='" . $schema . "'");
          // $data = DB::table('all_tab_columns')->where('table_name', $table)->where('OWNER', $schema)->get();
-        return $data;
-        
-
+         Alert::info('Tablas del esquema','Datos'.  $data . ' ');
+         return redirect()->back();
 
     }
 
@@ -123,7 +129,9 @@ class tablespacesController extends Controller
             ->where('owner', $schema)
             ->orderBy('table_name')
             ->get();
-        return $data;
+            Alert::info('Tablas del esquema','Datos'.  $data);
+            return redirect()->back();
+       
     }
 
     public function analizeSchema($schema)
@@ -163,7 +171,8 @@ class tablespacesController extends Controller
 
        // $path = 'respaldos/' . $schema . '.DMP';
 
-        return response(['message' => 'Respaldado creado con éxito'], 201);
+       Alert::success('Respaldo generado', 'Se ha registrado un respaldo del esquema ' . $fields . ' en el sistema');
+       return redirect()->back();
         
     }
     public function borrarRespaldoUsuario(Request $request)
@@ -178,7 +187,8 @@ class tablespacesController extends Controller
 
         File::delete($path);
 
-        return response()->json(['message' => 'Respaldo del schema ' . $schema . ' eliminado correctamente'], 200);
+        Alert::success('Respaldo eliminado', 'Se ha eliminado el respaldo  del esquema  del sistema');
+        return redirect()->back();
     
     }
 
@@ -194,9 +204,12 @@ class tablespacesController extends Controller
 
        try{
         shell_exec($cmd);
-        return response()->json(['message' => 'Respaldo de la base de datos ' . $database . ' creado correctamente'], 200);
+        Alert::success('Respaldo generado', 'Se ha registrado un respaldo FULL con el nombre ' . $fields . ' del sistema');
+        return redirect()->back();
     } catch (\Throwable $th) {
-        return response()->json(['message' => 'Error al crear el respaldo'], 500);
+        
+        Alert:: error('Error', 'No se ha podido generar el respaldo, intente de nuevo');
+        return redirect()->back();
     }
     }
     public function deleteDatabaseBackUp(Request $request)
@@ -212,9 +225,11 @@ class tablespacesController extends Controller
        
         try {
             File::delete($path);
-             return response()->json(['message' => 'Respaldo de la base de datos ' . $database . ' eliminado correctamente'], 200);
+            Alert::success('Respaldo eliminado', 'Se ha eliminado el respaldo FULL con el nombre ' . $fields . ' del sistema');
+                 return redirect()->back();
             } catch (\Throwable $th) {
-                return response()->json(['message' => 'Error al eliminar el respaldo'], 500);
+                Alert:: error('Error', 'No se ha podido eliminar el respaldo, intente de nuevo');
+                return redirect()->back();
             }
     }
    
@@ -229,7 +244,8 @@ class tablespacesController extends Controller
 
         DB::statement("CREATE USER " . $fields['uname'] . " IDENTIFIED BY " . $fields['password']);
 
-        return response(['message' => 'Usuario creado'], 201);
+        Alert::success('Usuario agregado al sistema', 'Se ha agregado el usuario correctamente');
+        return redirect()->back();
     }
     public function deleteUser(Request $request)
     {
@@ -241,7 +257,8 @@ class tablespacesController extends Controller
 
         DB::statement("DROP USER " . $fields['uname'] . " CASCADE");
 
-        return response(['message' => 'Usuario eliminado'], 201);
+        Alert::success('Usuario eliminado', 'Se ha eliminado el usuario del sistema');
+        return redirect()->back();
     }
     public function updateUser(Request $request)
     {
@@ -252,7 +269,8 @@ class tablespacesController extends Controller
 
         DB::statement("ALTER USER " . $fields . " IDENTIFIED BY " . $password);
 
-        return response(['message' => 'Usuario actualizado'], 201);
+        Alert::info('Usuario actualizado', 'Se ha actualizado el usuario ' . $fields . ' en el sistema');
+        return redirect()->back();
     }
     
     public static function auditoriaGeneral()
@@ -341,7 +359,7 @@ class tablespacesController extends Controller
   
           $data = DB::statement("GRANT " . $fields['role'] . " TO " . $fields['user']);
           
-          Alert::success('Asignacion de role', 'Role asignado correctamente a'. $fields['user']);
+          Alert::success('Asignacion de role', 'Role asignado correctamente ');
           return redirect()->back();
       }
       //listar los usuarios del sistema
@@ -363,7 +381,7 @@ class tablespacesController extends Controller
           
                   $data = DB::statement("GRANT " . $fields['privilege'] . " TO " . $fields['user']);
                   
-                  Alert::success('Asignacion de privilegio', 'Privilegio asignado correctamente a'. $fields['user']);
+                  Alert::success('Asignacion de privilegio', 'Privilegio asignado correctamente ');
                   return redirect()->back();
               }
               //listar todos los roles y privilegios de todos los usuarios
@@ -378,7 +396,8 @@ class tablespacesController extends Controller
               {
                   DB::statement('alter session set "_oracle_script"=true');
                   DB::statement('Audit connect');
-                  return response(['message' => 'Auditoria de conexiones activada'], 201);
+                  Alert::success('Audit Connect','Se ha activado el audit connect');
+                  return redirect()->back();
               }
                 //listar privilegios de un usuario 
     public static function privilegios()

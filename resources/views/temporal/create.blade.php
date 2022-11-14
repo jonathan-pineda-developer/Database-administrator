@@ -13,6 +13,7 @@
     <title>Create-tablespace</title>
 </head>
 <body>
+@include('sweetalert::alert')
 <!--
     Formulario de crear tablespace mediante get method
     <form action="{{ url('tablespace/createtable') }}" method="POST" class="was-validated">

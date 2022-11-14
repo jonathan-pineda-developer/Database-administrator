@@ -11,6 +11,7 @@
     <title>Respaldo</title>
 </head>
 <body>
+@include('sweetalert::alert')
 <!--end breadcrumb-->
 <br>
 <br>

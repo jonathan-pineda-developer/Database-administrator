@@ -11,6 +11,7 @@
     <title>Tablespace-create</title>
 </head>
 <body>
+@include('sweetalert::alert')
 <!--end breadcrumb-->
 <br>
 <br>

@@ -8,7 +8,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-
+@include('sweetalert::alert')
 <div class="row">
   <div class="col-xl-7 mx-auto">
   <br>

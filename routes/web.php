@@ -182,22 +182,11 @@ Route::post('/analizarTabla/nombre', [BaseController::class, 'analizeTableOfSche
 //delete .log and .dmp files
 Route::get('/delete-backup/{schema}', [tablespacesController::class, 'deleteSchemaBackUp']);
 
-//Listar todas las tablas del schema [ver todas las clases dentro de la base de datos]
-Route::get('/schema-tables/{schema}', [tablespacesController::class, 'tablasDeSchemas']);
 //analizar un schema
 Route::get('/analyze-schema/{schema}', [tablespacesController::class, 'analizeSchema']);
 //crear un bakup de una tabla SIMILAR A LA SCHEMA TABLE
 Route::get('/table-backup/{schema}/{table}', [tablespacesController::class, 'createTableBackUp']);
 
 //----------------------------------------------------------
-//listar privilegios
-Route::get('/list-privileges', [tablespacesController::class, 'privileges']);
-//listar roles
-Route::get('/list-roles', [tablespacesController::class, 'roles']);
-//listar usuarios
-Route::get('/list-users', [tablespacesController::class, 'users']);
-//listar privilegios de un usuario
-Route::get('/list-privilages-user/{user}', [tablespacesController::class, 'privilegesOfAUser']);
-//asignar un rol a un usuario
-Route::get('/assign-role/{user}/{role}', [tablespacesController::class, 'assignRole']);
+
 

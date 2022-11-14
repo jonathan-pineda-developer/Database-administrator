@@ -11,6 +11,7 @@
     <title>Actualizar</title>
 </head>
 <body>
+@include('sweetalert::alert')
 <br>
 <br>
 <div class="row">

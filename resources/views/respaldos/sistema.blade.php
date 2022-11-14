@@ -14,7 +14,7 @@
 <!--end breadcrumb-->
 <br>
 <br>            
-
+@include('sweetalert::alert')
 
 <div class="row">
 	<div class="col-xl-7 mx-auto">
@@ -70,14 +70,14 @@
 							                                <input type="text" class="form-control " id="deletedb" placeholder="Nombre del usuario" name="deletedb" required>
                                                                 <div class="valid-feedback">Posible respaldo detectado!</div>
                                                                     <div class="invalid-feedback">Debe de ingresar el nombre del respaldo</div>
-						                                </div>
-					<br>
-					<br>
-					<div class="d-grid gap-2 d-md-block">
-					<button type="submit" class="btn btn-danger px-5">Eliminar</button>
-					<a href="{{ url('/home') }}" class="btn btn-danger px-5">Volver</a>
-					</div>
-                                                </div>
+																									</div>
+																<br>
+																<br>
+																<div class="d-grid gap-2 d-md-block">
+																<button type="submit" class="btn btn-danger px-5">Eliminar</button>
+																<a href="{{ url('/home') }}" class="btn btn-danger px-5">Volver</a>
+																</div>
+                                                
 				                            </form>
                                             <hr>
 			        </div>
