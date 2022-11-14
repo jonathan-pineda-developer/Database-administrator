@@ -161,6 +161,15 @@ Route::get('/control-files', function () {
     return view('estadistica/archivos',['data20' => tablespacesController::ubicacion_control_files()]);
 });
 
+Route::get('/soporte-tecnico', function () {
+    return view('soporte/manual');
+});
+
+
+
+
+
+//----------------------------- NO IMPLEMENTADAS -----------------------------
 /*
 //------TUNNING DE CONSULTAS---------
 // analisis de las tablas de un schema

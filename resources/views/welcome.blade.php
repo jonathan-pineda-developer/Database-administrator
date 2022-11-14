@@ -127,6 +127,7 @@ img {
               <li><a class="dropdown-item" href="http://localhost/vscode21c/dbalocal/public/show-schema">Mostrar</a></li>
               <li><a class="dropdown-item" href="http://localhost/vscode21c/dbalocal/public/update-user">Actualizar</a></li>
               <li><a class="dropdown-item" href="http://localhost/vscode21c/dbalocal/public/delete-user">Eliminar</a></li>
+
             </ul>
             </li>
           <li class="nav-item dropdown">
@@ -153,10 +154,25 @@ img {
                     <a href="http://localhost/vscode21c/dbalocal/public/listar-permisos">Ver privilegios del sistema</a>
                   </div>
               </li>
+            </ul>
+            </li>
+              <li class="nav-item dropdown">
+            <a class="nav-link dropdown" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+             Soporte técnico
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+            <li class="dropdown-item" id ="dropdown">
+                 <a href="#" class="dropbtn" id="dropbtn">Manual</a>
+                  <div class="dropdown-content" id = "dropdown-content">
+                    <a href="http://localhost/vscode21c/dbalocal/public/soporte-tecnico">Consultar manual</a>
+                  </div>
+              </li>
+            </ul>
+            </li>
               <!--<li>
                 <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </li> 
+              <li><a class="dropdown-item" href="http://localhost/vscode21c/dbalocal/public/soporte-tecnico">Manual de usuario</a></li>
             </ul>
           </li>
         </ul>
